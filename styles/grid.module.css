@@ -1,0 +1,30 @@
+
+.gridContainer{
+    display: grid;
+    height: 500px;
+    grid-template-columns: [first] 40px  [main-start ] auto [main-end third] 40px;
+    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+.mainContent{
+    grid-column: main-start / main-end;
+    grid-row: 3/4;
+    background-color: rgb(11, 196, 233);
+    display: grid;
+    justify-items: center;
+}
+.squareOne{
+    grid-column: first / main;
+    grid-row: row1-start /row1-end;
+    width: 3rem;
+    height: 3rem;
+    background-color: black;
+    border-bottom-right-radius: 85%;
+}
+.squareTwo {
+    grid-column-start: 3;
+    grid-row: 1;
+    background-color: black;
+    width: 3rem;
+    height: 3rem;
+    border-bottom-left-radius: 85%;
+}
