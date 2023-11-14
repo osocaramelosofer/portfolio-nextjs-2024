@@ -5,7 +5,7 @@
 body{
   background-color: rgb(249, 244, 218);
   border-inline: 15px black solid;
-  border-top: 15px black solid;
+  border-block: 15px black solid;
 }
 :root {
   --foreground-rgb: 0, 0, 0;

@@ -17,11 +17,11 @@ const lottieOptions = {
 export default function Home () {
   return (
     <header className={styles.gridContainer}>
-      <div className={ styles.squareOne}></div>
-      <div className={styles.squareTwo}></div>
+       <div className={ styles.squareOne}></div>
+
+       <h1 className={`${kenia.className} text-4xl ${styles.title}`}>osocaramelosofer</h1>
 
       <div className={` ${styles.mainContent}`}>
-        <h1 className={`${kenia.className} text-4xl`}>osocaramelosofer</h1>
         <div className='lottie-container max-w-full h-auto'>
           <Lottie
             options={lottieOptions}
@@ -30,9 +30,9 @@ export default function Home () {
           />
         </div>
         <h2 className='font-outfit'>que es esto?</h2>
-        <h3>osocaramelosofer</h3>
-        <p>this is a paragraph !</p>
       </div>
+
+      <div className={styles.squareTwo}></div>
     </header>
   )
 }

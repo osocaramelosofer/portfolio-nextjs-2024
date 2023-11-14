@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
+import { FooterComponent } from '@/components/footer/footer-component'
 
 export const metadata: Metadata = {
   title: 'osocarameloso',
@@ -19,6 +20,7 @@ export default function RootLayout ({
       </head>
       <body >
         {children}
+        <FooterComponent/>
       </body>
     </html>
   )
