@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
 import { FooterComponent } from '@/components/footer/footer-component'
+import { Providers } from './providers'
+import NavbarComponent from '@/components/navbar/navbar-component'
 
 export const metadata: Metadata = {
   title: 'osocarameloso',
@@ -19,8 +21,11 @@ export default function RootLayout ({
         <meta name='view-transition' content='same-origin'/>
       </head>
       <body >
-        {children}
-        <FooterComponent/>
+        <Providers>
+          <NavbarComponent />
+          {children}
+        </Providers>
+        <FooterComponent />
       </body>
     </html>
   )
