@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  margin: 0;
+  padding: 0;
+}
 body{
   /* background-color: rgb(249, 244, 218); */
-  border-inline: 15px black solid;
-  border-block: 15px black solid;
+  border-inline: 10px black solid;
+  border-block: 10px black solid;
 }
 /* :root {
   --foreground-rgb: 0, 0, 0;
