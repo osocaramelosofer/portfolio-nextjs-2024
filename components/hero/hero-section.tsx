@@ -2,6 +2,7 @@ import styles from '@/styles/grid.module.css'
 import { outfit } from '../../app/fonts'
 import { Stack } from '@/components/hero/stack'
 import Container from './../ui/container'
+// import { Dots } from '@/components/ui/dots'
 
 export default function HeroSection () {
   return (
@@ -69,6 +70,12 @@ export default function HeroSection () {
         <Stack />
       </div>
     </Container>
+    {/* <Dots/> */}
+    <div
+      className="bg-[#F5E3FD] absolute rounded-full blur-[3rem] dark:blur-[6rem]
+      top-[0rem] -z-10 left-[0rem]
+      h-[12.25rem] w-[12.25rem] sm:w-[14.75rem] sm:h-[14.75rem] "
+      />
   </section>
   )
 }

@@ -3,10 +3,10 @@ export function Dots () {
     <>
       <div
       className="bg-[#F5E3FD] absolute rounded-full blur-[3rem] dark:blur-[6rem]
-      top-[0rem] -z-10 left-[15rem]
+      top-[0rem] -z-100 left-[15rem]
       h-[12.25rem] w-[12.25rem] sm:w-[14.75rem] sm:h-[14.75rem] dark:bg-[#fdfde3]"
       />
-      <div
+      {/* <div
       className="bg-[#CBD7FF] absolute rounded-full blur-[3rem] dark:blur-[6rem]
       top-[18rem] -z-10 -left-[1rem]
       h-[10.25rem] w-[10.25rem] sm:w-[12rem] sm:h-[12rem] dark:bg-[#fdfde3]"
@@ -26,7 +26,7 @@ export function Dots () {
       className="bg-gradient-to-r from-sky-500 to-indigo-500 absolute rounded-full -z-10 dark:blur-[6rem]
       top-[60rem] -left-[8rem] blur-[7rem]
       h-[10.25rem] w-[10.25rem] sm:w-[12.75rem] sm:h-[12.75rem] dark:bg-[#fdfde3]"
-      />
+      /> */}
     </>
   )
 }

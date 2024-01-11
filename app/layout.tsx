@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
 import { Providers } from './providers'
 import NavbarComponent from '@/components/navbar/navbar-component'
-import { Dots } from '@/components/ui/dots'
 
 export const metadata: Metadata = {
   title: 'osocarameloso',
@@ -24,7 +23,6 @@ export default function RootLayout ({
         <Providers>
           <NavbarComponent />
           {children}
-          {/* <Dots/> */}
         </Providers>
       </body>
     </html>
