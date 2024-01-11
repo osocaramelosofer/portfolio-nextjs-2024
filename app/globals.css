@@ -4,22 +4,17 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-html{
-  /* background-color: rgb(249, 244, 218); */
+
+/* html{
   border-inline: 10px black solid;
   border-block: 10px black solid;
 }
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@media (max-width: 768px) {
+  html {
+      border-inline: 7px rgb(255, 255, 255) solid;
+      border-block: 7px red solid;
   }
 } */
