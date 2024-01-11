@@ -21,17 +21,17 @@ export function Stack () {
     }
   ]
   return (
-    <div className="stack flex flex-col md:flex-row items-center bottom-0">
+    <div className="stack flex flex-col static md:flex-row items-center md:absolute bottom-0 left-0 text-lg">
         <p className="font-semibold mb-5 md:mb-0 border-b-2 md:border-b-0 md:border-r-2 border-stone-700/60 md:mr-12 md:pr-4 ">
             Tech Stack
         </p>
         <div className="logos">
-            <ul className="list-none flex justify-center gap-7 ">
+            <ul className="list-none flex flex-wrap justify-center md:justify-start gap-7 ">
                 {icons.map(icon => (
                     <li className="cursor-pointer hover:-translate-y-3 transition-all duration-1000"
                         key={icon.src}
                     >
-                        <img src={icon.src} alt="skill-icon" />
+                        <img className="w-24 h-12" src={icon.src} alt="skill-icon" />
                     </li>
                 ))}
             </ul>

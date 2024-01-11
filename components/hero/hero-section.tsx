@@ -5,15 +5,16 @@ import Container from './../ui/container'
 
 export default function HeroSection () {
   return (
-  <section className='hero h-auto py-20 relative'>
+  <section className='hero h-auto py-[11rem] md:py-0 flex flex-col relative w-full md:h-screen'>
     <Container>
-      <div className='hero-content grid gap-y-4 '>
-        <div className='hero-main text-center md:text-left flex flex-col-reverse  items-center md:justify-center md:flex-row md:gap-x-14'>
+      <div className='content h-auto md:h-[40.6rem] text-center md:text-left
+      relative flex flex-col md:flex-row justify-center items-center gap-y-4'>
+        <div className='hero-main relative tex-align md:tex-left flex flex-col-reverse items-center md:justify-center md:flex-row gap-x-[3rem] md:gap-x-[10rem] sm:h-auto'>
             <div className='hero-text flex flex-col gap-2 relative md:max-w-3xl'>
               <div className='flex w-full relative'>
                 <h1 className=
                 {`${outfit.className} ${styles.title}
-                 text-zinc-700 text-4xl font-bold  leading-tight my-8`}>
+                 text-zinc-700 text-4xl md:text-6xl font-bold  leading-tight my-8`}>
                   Front-End Developer</h1>
                 <img
                   className='w-[50px] h-[50px] absolute
@@ -56,7 +57,8 @@ export default function HeroSection () {
                 </a>
               </span>
             </div>
-            <figure className='hero-img rounded-full overflow-hidden max-w-[200px] max-h-[200px]'>
+            <figure className='hero-img rounded-full overflow-hidden max-w-[200px] max-h-[200px]
+            md:max-w-[300px] md:max-h-[300px]'>
               <img
                 className='object-cover'
                 src="/images/me.jpg"
