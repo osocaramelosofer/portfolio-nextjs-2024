@@ -22,7 +22,7 @@ export default function HeroSection () {
                   alt="Picture of the author"
                 />
               </div>
-              <p className={`${outfit.className}`}>Hi, I'm Fernando Hernandez. A passionate Front-end Developer based in Tlaxcala, Mexico. 📍</p>
+              <p className={`${outfit.className}`}>Hi, I&#39m Fernando Hernandez. A passionate Front-end Developer based in Tlaxcala, Mexico. 📍</p>
               <span className='flex gap-3 '>
                 <a href="https://github.com/osocaramelosofer" className='cursor-pointer hover:text-sky-500'>
                   <svg

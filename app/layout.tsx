@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
-import { FooterComponent } from '@/components/footer/footer-component'
 import { Providers } from './providers'
 import NavbarComponent from '@/components/navbar/navbar-component'
 
@@ -25,7 +24,6 @@ export default function RootLayout ({
           <NavbarComponent />
           {children}
         </Providers>
-        {/* <FooterComponent /> */}
       </body>
     </html>
   )
