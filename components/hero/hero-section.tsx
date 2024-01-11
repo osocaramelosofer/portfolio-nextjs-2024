@@ -1,7 +1,6 @@
 import styles from '@/styles/grid.module.css'
 import { outfit } from '../../app/fonts'
 import { Stack } from '@/components/hero/stack'
-import { Dots } from '@/components/ui/dots'
 import Container from './../ui/container'
 
 export default function HeroSection () {
@@ -17,7 +16,10 @@ export default function HeroSection () {
                  text-zinc-700 text-4xl font-bold  leading-tight my-8`}>
                   Front-End Developer</h1>
                 <img
-                  className=' w-[50px] h-[50px] absolute right-12 top-6 md:top-6 md:right-8'
+                  className='w-[50px] h-[50px] absolute
+                  -right-3 top-16
+                   md:top-0 md:right-8
+                   lg:top-6 lg:right-8'
                   src='/images/waving.png'
                   alt="Picture of the author"
                 />
@@ -65,7 +67,6 @@ export default function HeroSection () {
         <Stack />
       </div>
     </Container>
-    <Dots />
   </section>
   )
 }

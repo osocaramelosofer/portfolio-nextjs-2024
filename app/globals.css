@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
 }
-body{
+html{
   /* background-color: rgb(249, 244, 218); */
   border-inline: 10px black solid;
   border-block: 10px black solid;
