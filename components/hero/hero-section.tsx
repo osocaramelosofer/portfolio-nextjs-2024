@@ -2,11 +2,11 @@ import { outfit } from '../../app/fonts'
 import { Stack } from '@/components/hero/stack'
 import Container from './../ui/container'
 import styles from './styles.module.css'
-// import { Dots } from '@/components/ui/dots'
+import { Dots } from '@/components/ui/dots'
 
 export default function HeroSection () {
   return (
-  <section className='hero h-auto py-[11rem] md:py-0 flex flex-col relative w-full md:h-screen'>
+  <section className='hero h-auto py-[4rem] md:py-0 flex flex-col relative w-full md:h-screen'>
     <Container>
       <div className='content h-auto md:h-[40.6rem] text-center md:text-left
       relative flex flex-col md:flex-row justify-center items-center gap-y-4'>
@@ -24,7 +24,7 @@ export default function HeroSection () {
                   -right-3 top-16
                    md:top-0 md:right-8
                    lg:top-6 lg:right-8'
-                  src='/images/waving.png'
+                  src='/images/waving.webp'
                   alt="Picture of the author"
                 />
               </div>
@@ -65,12 +65,8 @@ export default function HeroSection () {
         <Stack />
       </div>
     </Container>
-    {/* <Dots/> */}
-    <div
-      className="bg-[#F5E3FD] absolute rounded-full blur-[3rem] dark:blur-[6rem]
-      top-[0rem] -z-10 left-[0rem]
-      h-[12.25rem] w-[12.25rem] sm:w-[14.75rem] sm:h-[14.75rem] "
-      />
+    <Dots/>
+
   </section>
   )
 }

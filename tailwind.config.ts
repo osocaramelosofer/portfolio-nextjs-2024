@@ -16,9 +16,8 @@ const config: Config = {
         outfit: ['var(--font-outfit)']
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+        'custom-gradient': 'linear-gradient(90deg, rgba(15,3,221,.3) 0%, rgba(77,77,255,.3) 35%, rgba(0,212,255,.3) 100%)',
+        'reverse-custom-gradient': 'linear-gradient(0deg, rgba(15,3,221,.3) 0%, rgba(77,77,255,.3) 35%, rgba(0,212,255,.3) 100%)'
       }
     }
   },

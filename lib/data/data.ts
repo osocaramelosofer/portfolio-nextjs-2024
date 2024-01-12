@@ -1,4 +1,5 @@
-import babelonImg from '@/public/images/babelon.png'
+import babelonImg from '@/public/images/babelon.webp'
+import menuAppImg from '@/public/images/menu-app.webp'
 export const projectsData = [
   {
     title: 'Babelon',
@@ -8,18 +9,11 @@ export const projectsData = [
     imageUrl: babelonImg
   },
   {
-    title: 'rmtDev',
+    title: 'Menu App',
     description:
         'Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.',
     tags: ['React', 'TypeScript', 'Next.js', 'Tailwind', 'Redux'],
-    imageUrl: babelonImg
-  },
-  {
-    title: 'Word Analytics',
-    description:
-        'A public web app for quick analytics on text. It shows word count, character count and social media post limits.',
-    tags: ['React', 'Next.js', 'SQL', 'Tailwind', 'Framer'],
-    imageUrl: babelonImg
+    imageUrl: menuAppImg
   }
 ] as const
 

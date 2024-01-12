@@ -19,7 +19,7 @@ export default function RootLayout ({
       <head>
         <meta name='view-transition' content='same-origin'/>
       </head>
-      <body className='relative'>
+      <body className=''>
         <Providers>
           <NavbarComponent />
           {children}
