@@ -18,10 +18,18 @@ export function Stack () {
       src: 'https://skillicons.dev/icons?i=tailwind,sass',
       alt: 'skill-icon'
 
+    },
+    {
+      src: 'https://skillicons.dev/icons?i=python,django',
+      alt: 'skill-icon'
+    },
+    {
+      src: 'https://skillicons.dev/icons?i=docker,c#',
+      alt: 'skill-icon'
     }
   ]
   return (
-    <div className="stack flex flex-col static md:flex-row items-center md:absolute bottom-0 left-0 text-lg">
+    <div className="stack items-center bottom-0 flex flex-col static text-lg lg:flex-row md:left-80 md:absolute ">
         <p className="font-semibold mb-5 md:mb-0 border-b-2 md:border-b-0 md:border-r-2 border-stone-700/60 md:mr-12 md:pr-4 ">
             Tech Stack
         </p>

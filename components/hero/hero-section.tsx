@@ -1,7 +1,7 @@
-import styles from '@/styles/grid.module.css'
 import { outfit } from '../../app/fonts'
 import { Stack } from '@/components/hero/stack'
 import Container from './../ui/container'
+import styles from './styles.module.css'
 // import { Dots } from '@/components/ui/dots'
 
 export default function HeroSection () {
@@ -11,12 +11,14 @@ export default function HeroSection () {
       <div className='content h-auto md:h-[40.6rem] text-center md:text-left
       relative flex flex-col md:flex-row justify-center items-center gap-y-4'>
         <div className='hero-main relative tex-align md:tex-left flex flex-col-reverse items-center md:justify-center md:flex-row gap-x-[3rem] md:gap-x-[10rem] sm:h-auto'>
-            <div className='hero-text flex flex-col gap-2 relative md:max-w-3xl'>
+            <div className='hero-text flex flex-col gap-2 relative max-w-[400px]'>
               <div className='flex w-full relative'>
                 <h1 className=
                 {`${outfit.className} ${styles.title}
-                 text-zinc-700 text-4xl md:text-6xl font-bold  leading-tight my-8`}>
-                  Front-End Developer</h1>
+                 text-zinc-700 text-4xl md:text-6xl font-bold leading-tight my-8`}>
+                  Full-Stack
+                  Developer
+                  </h1>
                 <img
                   className='w-[50px] h-[50px] absolute
                   -right-3 top-16
@@ -26,7 +28,7 @@ export default function HeroSection () {
                   alt="Picture of the author"
                 />
               </div>
-              <p className={`${outfit.className}`}>Hi, I&#39m Fernando Hernandez. A passionate Front-end Developer based in Tlaxcala, Mexico. 📍</p>
+              <p className={`${outfit.className}`}>Hi, I&apos;m Fernando Hernandez. A passionate Full-Stack Developer based in Tlaxcala, Mexico. 📍</p>
               <span className='flex gap-3 my-10 justify-center md:justify-start'>
                 <a href="https://github.com/osocaramelosofer" className='cursor-pointer hover:text-sky-500 text-5xl'>
                   <svg
@@ -58,14 +60,7 @@ export default function HeroSection () {
                 </a>
               </span>
             </div>
-            <figure className='hero-img rounded-full overflow-hidden max-w-[200px] max-h-[200px]
-            md:max-w-[300px] md:max-h-[300px]'>
-              <img
-                className='object-cover'
-                src="/images/me.jpg"
-                alt="Picture of the author"
-              />
-            </figure>
+            <div className={`${styles.heroImg}`} />
         </div>
         <Stack />
       </div>

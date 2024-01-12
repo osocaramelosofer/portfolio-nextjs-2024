@@ -3,7 +3,7 @@
 import React from 'react'
 import { projectsData } from '@/lib/data/data'
 import Project from './project'
-import Container from '../ui/container'
+// import Container from '../ui/container'
 // import { useSectionInView } from '@/lib/hooks/useSectionView'
 // import SectionHeading from './section-heading'
 
@@ -11,18 +11,14 @@ export default function Projects () {
   // const { ref } = useSectionInView('Projects', 0.5)
 
   return (
-    <section id="projects" className="scroll-mt-28 mb-28">
+    <section id="projects" className="mx-auto w-full grid justify-center">
       {/* <SectionHeading>My projects</SectionHeading> */}
-      <h2 className='text-center'>My projects</h2>
-      <Container>
-        <div>
-            {projectsData.map((project, index) => (
-            <React.Fragment key={index}>
-                <Project {...project} />
-            </React.Fragment>
-            ))}
-        </div>
-      </Container>
+      <h2 className='text-center font-semibold text-3xl'>My Projects</h2>
+
+      {projectsData.map((project, index) => (
+          <Project key={index} {...project} />
+      ))}
+
     </section>
   )
 }
