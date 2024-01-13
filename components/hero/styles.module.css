@@ -1,4 +1,8 @@
-
+.title{
+    background-image: linear-gradient(91deg, #2de3fa,#002bff);
+    background-clip: text;
+    color: transparent;
+}
 .heroImg{
     -webkit-animation: morph 8s ease-in-out infinite;
     animation: morph 8s ease-in-out infinite;

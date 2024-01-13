@@ -30,7 +30,10 @@ export default function HeroSection () {
               </div>
               <p className={`${outfit.className}`}>Hi, I&apos;m Fernando Hernandez. A passionate Full-Stack Developer based in Tlaxcala, Mexico. 📍</p>
               <span className='flex gap-3 my-10 justify-center md:justify-start'>
-                <a href="https://github.com/osocaramelosofer" className='cursor-pointer hover:text-sky-500 text-5xl'>
+                <a href="https://github.com/osocaramelosofer"
+                className='cursor-pointer hover:text-cyan-400 text-5xl'
+                aria-label='linkedin'
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="32"
@@ -44,7 +47,10 @@ export default function HeroSection () {
                     className="tabler-icon tabler-icon-brand-github"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
                   </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/fernando-hernández-8b30421b2/" className='cursor-pointer hover:text-sky-500 text-5xl'>
+                <a href="https://www.linkedin.com/in/fernando-hernández-8b30421b2/"
+                className='cursor-pointer hover:text-cyan-500 text-5xl'
+                aria-label='github'
+                >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -66,7 +72,6 @@ export default function HeroSection () {
       </div>
     </Container>
     <Dots/>
-
   </section>
   )
 }
