@@ -8,10 +8,10 @@ export default function NavbarComponent () {
                 <a href="#">Home</a>
             </li>
             <li className={styles.menuItem}>
-                <a href="#">Projects</a>
+                <a href="#about">About</a>
             </li>
             <li className={styles.menuItem}>
-                <a href="#">Contact</a>
+                <a href="#projects">Projects</a>
             </li>
         </ul>
     </nav>

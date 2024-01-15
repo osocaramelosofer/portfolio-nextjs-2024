@@ -1,6 +1,6 @@
 .aboutTitle{
     /* background-image: linear-gradient(to right, #7fe0b4, #00cfc9, #00bae3, #009ff3, #127deb); */
-    background-color: #1d4ed8;
+    /* background-color: #1d4ed8;
     background-clip: text;
     color: transparent;
     line-height: 1.25;
@@ -9,5 +9,26 @@
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    word-spacing: 3px;
+    word-spacing: 3px; */
+    color: #147efb;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: .7rem;
+    text-transform: uppercase;
+}
+
+.description{
+    color: #2d2e32;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+
+}
+.pTag{
+    color: #767676;
+    font-family: Mulish,sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
 }
