@@ -3,13 +3,15 @@ import { Stack } from '@/components/hero/stack'
 import Container from './../ui/container'
 import styles from './styles.module.css'
 import { Dots } from '@/components/ui/dots'
+import { cn } from '@/lib/utils'
 
 export default function HeroSection () {
   return (
-  <section className='hero h-auto py-[4rem] md:py-0 flex flex-col relative w-full md:h-screen'>
+  <section id='home' className='hero h-auto flex flex-col relative w-full
+  py-[4rem] md:py-0  pt-24 lg:pt-0 md:h-screen'>
     <Container>
-      <div className='content h-auto md:h-[40.6rem] text-center md:text-left
-      relative flex flex-col md:flex-row justify-center items-center gap-y-4'>
+      <div className='content mt-2 md:mt-28 h-auto md:h-[40.6rem] text-center md:text-left
+      relative flex flex-col justify-center items-center gap-y-4'>
         <div className='hero-main relative tex-align md:tex-left flex flex-col-reverse items-center md:justify-center md:flex-row gap-x-[3rem] md:gap-x-[10rem] sm:h-auto'>
             <div className='hero-text flex flex-col gap-2 relative max-w-[400px]'>
               <div className='flex w-full relative'>
@@ -28,7 +30,7 @@ export default function HeroSection () {
                   alt="Picture of the author"
                 />
               </div>
-              <p className={`${outfit.className}`}>Hi, I&apos;m Fernando Hernandez. A passionate Full-Stack Developer based in Tlaxcala, Mexico. 📍</p>
+              <p className={cn('text-medium md:text-lg', outfit.className)}>Hi, I&apos;m Fernando Hernandez. A passionate Full-Stack Developer based in Mexico city. 📍</p>
               <span className='flex gap-3 my-10 justify-center md:justify-start'>
                 <a href="https://github.com/osocaramelosofer"
                 className='cursor-pointer hover:text-cyan-400 text-5xl'

@@ -29,7 +29,7 @@ export function Stack () {
     }
   ]
   return (
-    <div className="stack items-center bottom-0 flex flex-col static text-lg lg:flex-row md:left-80 md:absolute ">
+    <div className="stack items-center bottom-0 flex flex-col static text-lg lg:flex-row md:left-80 ">
         <p className="font-semibold mb-5 md:mb-0 border-b-2 md:border-b-0 md:border-r-2 border-stone-700/60 md:mr-12 md:pr-4 ">
             Tech Stack
         </p>
