@@ -8,7 +8,7 @@
     justify-content: space-between;
     left: 0;
     padding: 15px 40px 15px 40px;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
     z-index: 200;
@@ -20,18 +20,3 @@ position: relative;
 .menuItem:hover {
     color: rgb(36, 133, 251);
 }
-/* .menuItem::before {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    -moz-border-radius: 7.5px;
-    -webkit-border-radius: 7.5px;
-    border-radius: 7.5px;
-    background-color: #69b6d5;
-    justify-content: center;
-    align-items: center;
-} */
-/* .menuItem::after {
-    content: ":p";
-} */

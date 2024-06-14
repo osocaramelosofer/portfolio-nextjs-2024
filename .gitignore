@@ -2,3 +2,4 @@ node_modules
 .next/**
 .eslintrc.json
 pnpm-lock.yaml
+.env.local

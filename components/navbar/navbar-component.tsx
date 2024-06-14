@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './navbar.module.css'
 export default function NavbarComponent () {
   return (
@@ -9,9 +10,11 @@ export default function NavbarComponent () {
             <li className={styles.menuItem}>
                 <a href="#about">About</a>
             </li>
-            <li className={styles.menuItem}>
-                <a href="#projects">Projects</a>
-            </li>
+            <Link
+            className={styles.menuItem}
+            href="/chat">
+              Chat
+              </Link>
         </ul>
     </nav>
   )
