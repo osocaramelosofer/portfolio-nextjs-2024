@@ -1,7 +1,14 @@
 'use client'
-import { type FormEvent, useEffect, useRef } from 'react'
+import { type ChatRequestOptions } from 'ai'
+import { type FormEvent, useEffect, useRef, type ChangeEvent, type RefObject } from 'react'
 
-export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, msgContainer }) {
+interface IChatInputProps {
+  input: string
+  handleSubmit: (e: FormEvent<HTMLFormElement>, chatRequestOptions?: ChatRequestOptions | undefined) => void
+  handleInputChange: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void
+  msgContainer: RefObject<HTMLDivElement>
+}
+export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, msgContainer }: IChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const MAX_HEIGHT = 150
 
@@ -15,20 +22,20 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
       }
     }
     if (textarea !== null) {
-      textarea.addEventListener('keyup', adjustHeight)
+      textarea.addEventListener('input', adjustHeight)
     }
 
     return () => {
       if (textarea !== null) {
-        textarea.removeEventListener('keyup', adjustHeight)
+        textarea.removeEventListener('input', adjustHeight)
       }
     }
   }, [MAX_HEIGHT])
 
   const sendMsg = (event: FormEvent<HTMLFormElement>) => {
     handleSubmit(event)
-    if (msgContainer !== null) {
-      msgContainer.scrollTop = msgContainer.scrollHeight
+    if (msgContainer?.current !== null) {
+      msgContainer.current.scrollTop = msgContainer.current.scrollHeight
     }
   }
 

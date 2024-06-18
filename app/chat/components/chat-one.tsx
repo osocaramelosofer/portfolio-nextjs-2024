@@ -3,7 +3,7 @@
 import { useChat } from '@ai-sdk/react'
 import { type ToolInvocation } from 'ai'
 import { ChatgptInputExample } from './chatgpt-input-example'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function ChatOne () {
   const { messages, input, handleInputChange, handleSubmit, addToolResult } = useChat({
@@ -16,15 +16,21 @@ export default function ChatOne () {
       }
     }
   })
-  const msgContainer = useRef<HTMLUListElement>(null)
+  // SHOW THE LAST MESSAGES
+  const msgContainer = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (msgContainer.current !== null) {
+      msgContainer.current.scrollTop = msgContainer.current.scrollHeight
+    }
+  }, [messages])
 
   return (
     <>
         <main className='flex flex-col h-full'>
           <div className='overflow-hidden flex-1'>
             <div className='react-scroll-to-bottom relative h-full'>
-              <div className='react-scroll-to-bottom h-full overflow-y-auto w-full max-h-[550px]'>
-                <ul ref={msgContainer} className='overflow-hidden flex-1 min-h-96'>
+              <div ref={msgContainer} className='react-scroll-to-bottom h-full overflow-y-auto w-full max-h-[550px]'>
+                <ul className='overflow-hidden flex-1 min-h-96'>
                 {Array.from({ length: 5 }).map((_, idx) => (
                   <li className='message' key={idx}>
                     <p >Me</p>
@@ -109,17 +115,6 @@ export default function ChatOne () {
            msgContainer={msgContainer}
           />
         </main>
-        {/* <form onSubmit={handleSubmit}>
-            <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={handleInputChange}
-              placeholder="Write your message here..."
-              style={{ overflow: 'hidden' }}
-            />
-            <button>Send</button>
-        </form> */}
-
     </>
   )
 }
