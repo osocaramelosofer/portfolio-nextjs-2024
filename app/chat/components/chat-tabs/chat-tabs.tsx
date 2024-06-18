@@ -1,4 +1,6 @@
 'use client'
+// Docs:
+// https://www.freecodecamp.org/news/build-a-high-performance-tab-component/#the-heart-of-the-tab-component
 import { useState, type ReactElement } from 'react'
 import { TabButtons } from './tab-buttons'
 import TabContent from './tab-content'

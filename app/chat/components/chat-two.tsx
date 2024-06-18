@@ -1,42 +1,69 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+// DOCS:
+// https://sdk.vercel.ai/examples/next-app/basics/generating-text
 'use client'
-import { useChat } from '@ai-sdk/react'
+
+import { useState } from 'react'
+// import { getAnswer } from '@/app/actions/actions'
+import { type Message, continueConversation } from '@/app/actions/continueConversation'
+
+// Force the page to be dynamic and allow streaming responses up to 30 seconds
+export const dynamic = 'force-dynamic'
+export const maxDuration = 30
 
 export default function ChatTwo () {
-  const { messages, input, handleInputChange, handleSubmit } = useChat()
+  // const [generation, setGeneration] = useState<string>('')
+  const [conversation, setConversation] = useState<Message[]>([])
+  const [input, setInput] = useState<string>('')
 
   return (
     <>
         <main>
             <ul>
-                {messages.map(m => (
-                <li
-                    key={m.id}
-                    className={`message ${m.role === 'user' ? 'user' : 'bot'}`}
-                >
+              {conversation.map((m, index) => (
+                <div key={index}>
+                    <li
+                      className={`message ${m.role === 'user' ? 'user' : 'bot'}`}
+                    >
                     <span>{m.role === 'user' ? 'user' : 'AI'}</span>
-                    <p>{m.content}</p>
-                </li>
-                ))}
+                    <p>
+                      {m.role} :
+                      {m.content}
+                      {m.display}
+                    </p>
+                  </li>
+                </div>
+              ))}
+
             </ul>
         </main>
 
-        <form onSubmit={handleSubmit}>
-            <input
-                value={input}
-                onChange={handleInputChange}
-                placeholder="This is the second chat..."
-            />
-            <button>Send</button>
-        </form>
-
-        <small>&nbsp;</small>
-
-        <template id="message-template">
-            <li className="message">
-                <span></span>
-                <p></p>
-            </li>
-        </template>
+        <div>
+          <input
+            type="text"
+            value={input}
+            onChange={event => {
+              setInput(event.target.value)
+            }}
+          />
+          <button
+            onClick={async () => {
+              // const { messages } = await continueConversation([
+              //   ...conversation,
+              //   { role: 'user', content: input }
+              // ])
+              const { messages } = await continueConversation([
+                ...conversation.map(({ role, content }) => ({ role, content })),
+                { role: 'user', content: input }
+              ])
+              setConversation(messages)
+              setInput('')
+            }}
+            className='bg-blue-500 p-2 rounded-md text-white'
+          >
+              Send Message
+            </button>
+        </div>
     </>
   )
 }
