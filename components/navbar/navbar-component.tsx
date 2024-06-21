@@ -3,19 +3,20 @@ import styles from './navbar.module.css'
 export default function NavbarComponent () {
   return (
     <nav className={styles.navbarContainer}>
-        <ul className='flex justify-center w-full gap-x-3 font-outfit text-lg font-bold'>
-            <li className={styles.menuItem}>
-                <a href="#home">Home</a>
-            </li>
-            <li className={styles.menuItem}>
-                <a href="#about">About</a>
-            </li>
-            <Link
-            className={styles.menuItem}
-            href="/chat">
-              Chat
-              </Link>
+        <ul className='flex flex-row justify-center w-full gap-x-3 font-outfit text-lg font-bold'>
+          <LinkItem name='Home' path='/'/>
+          <LinkItem name='About' path='/#about' />
+          <LinkItem name='Chat' path='/chat' />
         </ul>
     </nav>
+  )
+}
+function LinkItem ({ name, path }: { name: string, path: string }) {
+  return (
+    <Link
+    className={styles.menuItem}
+    href={path}>
+      {name}
+  </Link>
   )
 }
