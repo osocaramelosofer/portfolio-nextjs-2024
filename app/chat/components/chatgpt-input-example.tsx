@@ -6,18 +6,18 @@ interface IChatInputProps {
   input: string
   handleSubmit: (e: FormEvent<HTMLFormElement>, chatRequestOptions?: ChatRequestOptions | undefined) => void
   handleInputChange: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void
-  msgContainer: RefObject<HTMLDivElement>
+  msgContainer?: RefObject<HTMLDivElement>
 }
 export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, msgContainer }: IChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
-  const MAX_HEIGHT = 150
 
+  // INCREMENT TEXTAREA.HEIGHT WHEN INPUT AN BREAK LINE
   useEffect(() => {
     const textarea = textareaRef.current
     const adjustHeight = () => {
       if (textarea !== null) {
         textarea.style.height = '0px'
-        const newHeight = Math.min(textarea.scrollHeight, MAX_HEIGHT)
+        const newHeight = textarea.scrollHeight
         textarea.style.height = `${newHeight}px`
       }
     }
@@ -30,13 +30,15 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
         textarea.removeEventListener('input', adjustHeight)
       }
     }
-  }, [MAX_HEIGHT])
+  }, [])
 
   const sendMsg = (event: FormEvent<HTMLFormElement>) => {
     handleSubmit(event)
-    if (msgContainer?.current !== null) {
-      msgContainer.current.scrollTop = msgContainer.current.scrollHeight
-    }
+    // SEE LAST MESSAGES WITHOUT SCROLLING YOURSELF, Al parecer no lo necesito jaja
+    // if (msgContainer?.current !== null && msgContainer?.current !== undefined) {
+    //   console.log('here:')
+    //   msgContainer.current.scrollTop = msgContainer.current.scrollHeight
+    // }
   }
 
   return (
@@ -75,7 +77,8 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
               value={input}
               onChange={handleInputChange}
               placeholder="Write your message here..."
-              style={{ overflow: 'hidden', maxHeight: `${MAX_HEIGHT}px` }}
+              // style={{ overflow: 'hidden', maxHeight: `${MAX_HEIGHT}px` }}
+              className='resize-none max-h-[25vh] h-7'
             />
             </div>
               <button

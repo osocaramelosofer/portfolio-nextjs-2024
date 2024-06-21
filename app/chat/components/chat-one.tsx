@@ -31,12 +31,12 @@ export default function ChatOne () {
             <div className='react-scroll-to-bottom relative h-full'>
               <div ref={msgContainer} className='react-scroll-to-bottom h-full overflow-y-auto w-full max-h-[550px]'>
                 <ul className='overflow-hidden flex-1 min-h-96'>
-                {Array.from({ length: 5 }).map((_, idx) => (
+                {/* {Array.from({ length: 5 }).map((_, idx) => (
                   <li className='message' key={idx}>
                     <p >Me</p>
                     <span>hola</span>
                   </li>
-                ))}
+                ))} */}
                     {messages.map(m => (
                     <li
                         key={m.id}
@@ -112,7 +112,7 @@ export default function ChatOne () {
            input={input}
            handleInputChange={handleInputChange}
            handleSubmit={handleSubmit}
-           msgContainer={msgContainer}
+          //  msgContainer={msgContainer}
           />
         </main>
     </>
