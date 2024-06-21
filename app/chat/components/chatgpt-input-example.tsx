@@ -10,6 +10,7 @@ interface IChatInputProps {
 }
 export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, msgContainer }: IChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   // INCREMENT TEXTAREA.HEIGHT WHEN INPUT AN BREAK LINE
   useEffect(() => {
@@ -33,6 +34,7 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
   }, [])
 
   const sendMsg = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     handleSubmit(event)
     // SEE LAST MESSAGES WITHOUT SCROLLING YOURSELF, Al parecer no lo necesito jaja
     // if (msgContainer?.current !== null && msgContainer?.current !== undefined) {
@@ -40,14 +42,23 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
     //   msgContainer.current.scrollTop = msgContainer.current.scrollHeight
     // }
   }
+  // SUBMIT FORM ON PRESS 'ENTER'
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if ((event.key === 'enter' || event.keyCode === 13) && !event.shiftKey) {
+      event.preventDefault()
+      if (formRef.current !== null) {
+        // we pass event like that to avoid errors when calling handleSubmit of sendMsg function
+        sendMsg(event as unknown as FormEvent<HTMLFormElement>)
+      }
+    }
+  }
 
   return (
-    <form onSubmit={sendMsg}>
+    <form onSubmit={sendMsg} ref={formRef}>
       <div className="flex w-full items-center">
           <div className="flex w-full flex-col gap-1.5 rounded-[26px] p-1.5 transition-colors bg-[#f4f4f4] dark:bg-token-main-surface-secondary">
             <div className="flex items-end gap-1.5 md:gap-2">
               <div><div className="flex flex-col">
-                {/* <input multiple="" type="file" tabindex="-1" class="hidden" style="display: none;"> */}
                 <button type="button" id="radix-:re:" aria-haspopup="menu" aria-expanded="false" data-state="closed" className="text-token-text-primary border border-transparent inline-flex items-center justify-center gap-1 rounded-lg text-sm dark:transparent dark:bg-transparent leading-none outline-none cursor-pointer hover:bg-token-main-surface-secondary dark:hover:bg-token-main-surface-secondary focus-visible:bg-token-main-surface-secondary radix-state-active:text-token-text-secondary radix-disabled:cursor-auto radix-disabled:bg-transparent radix-disabled:text-token-text-tertiary dark:radix-disabled:bg-transparent m-0 h-0 w-0 border-none bg-transparent p-0">
             </button>
             <button className="flex items-center justify-center text-token-text-primary juice:h-8 juice:w-8 dark:text-white juice:rounded-full focus-visible:outline-black dark:focus-visible:outline-white juice:mb-1 juice:ml-1.5" aria-disabled="false">
@@ -61,27 +72,17 @@ export function ChatgptInputExample ({ input, handleSubmit, handleInputChange, m
             </div>
             </div>
             <div className="flex min-w-0 flex-1 flex-col">
-            {/* <textarea
-              id="prompt-textarea"
-              tabIndex={0}
-              ref={textareaRef}
-              data-id="request-WEB:cd7b5f78-73fa-4ad7-ba94-5cbd30c1cc60-1"
-              dir="auto"
-              rows={1}
-              placeholder="Envía un mensaje a ChatGPT"
-              className="m-0 resize-none border-0 bg-transparent px-0 text-token-text-primary focus:ring-0 focus-visible:ring-0 max-h-[25dvh] max-h-52"
-              style={{ height: '40px', overflowY: 'hidden' }}>
-              </textarea> */}
               <textarea
-              ref={textareaRef}
-              value={input}
-              onChange={handleInputChange}
-              placeholder="Write your message here..."
-              // style={{ overflow: 'hidden', maxHeight: `${MAX_HEIGHT}px` }}
-              className='resize-none max-h-[25vh] h-7'
+                ref={textareaRef}
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Write your message here..."
+                className='resize-none max-h-[25vh] h-7'
+                onKeyDown={handleKeyDown}
             />
             </div>
               <button
+              type='submit'
                className="mb-1 me-1 flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-colors hover:opacity-70 focus-visible:outline-none focus-visible:outline-black disabled:bg-[#D7D7D7] disabled:text-[#f4f4f4] disabled:hover:opacity-100 dark:bg-white dark:text-black dark:focus-visible:outline-white disabled:dark:bg-token-text-quaternary dark:disabled:text-token-main-surface-secondary"
                >
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32" className="icon-2xl">

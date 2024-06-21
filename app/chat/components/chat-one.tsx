@@ -26,17 +26,21 @@ export default function ChatOne () {
 
   return (
     <>
-        <main className='flex flex-col h-full'>
+        <main className='flex flex-col h-full gap-y-2'>
           <div className='overflow-hidden flex-1'>
             <div className='react-scroll-to-bottom relative h-full'>
-              <div ref={msgContainer} className='react-scroll-to-bottom h-full overflow-y-auto w-full max-h-[550px]'>
+              <div
+                ref={msgContainer}
+                className='react-scroll-to-bottom h-full overflow-y-auto
+                w-full'
+              >
                 <ul className='overflow-hidden flex-1 min-h-96'>
-                {/* {Array.from({ length: 5 }).map((_, idx) => (
-                  <li className='message' key={idx}>
-                    <p >Me</p>
-                    <span>hola</span>
-                  </li>
-                ))} */}
+                    {Array.from({ length: 7 }).map((_, idx) => (
+                      <li className='message' key={idx}>
+                        <p >Me</p>
+                        <span>hola</span>
+                      </li>
+                    ))}
                     {messages.map(m => (
                     <li
                         key={m.id}
