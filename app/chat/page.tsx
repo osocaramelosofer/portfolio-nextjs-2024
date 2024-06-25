@@ -4,10 +4,8 @@ import ChatTabs from './components/chat-tabs/chat-tabs'
 
 export default function ChatPage () {
   return (
-    <section>
-      <div className='wrapper px-10 mx-auto w-5/6'>
-        <ChatTabs />
-      </div>
-    </section>
+    <div className='wrapper px-10 mx-auto w-5/6'>
+      <ChatTabs />
+    </div>
   )
 }
