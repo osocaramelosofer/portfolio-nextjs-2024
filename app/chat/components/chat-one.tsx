@@ -26,8 +26,93 @@ export default function ChatOne () {
 
   return (
     <>
-        <section className='presentation flex flex-col h-full gap-y-2 max-h-[500px]'>
-          <div className='overflow-auto flex-1'>
+        <section className='flex flex-col gap-y-2 max-h-[80vh] bg-white'>
+          <div
+            className='
+              messages-container
+              max-w-full h-[75vh]
+              rounded-md
+              border-[1px] border-solid border-[#ccc] shadow-xl
+              p-2
+              overflow-y-auto scroll-smooth'
+              ref={msgContainer}
+          >
+            <ul className='overflow-auto flex-1'>
+                        {Array.from({ length: 1 }).map((_, idx) => (
+                          <li className='message' key={idx}>
+                            <p >Me</p>
+                            <span>hola</span>
+                          </li>
+                        ))}
+                        {messages.map(m => (
+                        <li
+                            key={m.id}
+                            className={`message ${m.role === 'user' ? 'user' : 'bot'}`}
+                        >
+                            <span>{m.role === 'user' ? 'user' : 'AI'}</span>
+                            <p>{m.content}</p>
+
+                            {m.toolInvocations?.map((toolInvocation: ToolInvocation) => {
+                              const toolCallId = toolInvocation.toolCallId
+                              if (toolInvocation.toolName === 'askForConfirmation') {
+                                return (
+                                    <div key={toolCallId}>
+                                      { `que es esto? = ${toolInvocation.args.message}` }
+                                      <div>
+                                        {'result' in toolInvocation
+                                          ? (
+                                          <b>{toolInvocation.result}</b>
+                                            )
+                                          : (
+                                          <>
+                                            <button
+                                              onClick={() => {
+                                                addToolResult({
+                                                  toolCallId,
+                                                  result: 'Yes, confirmed.'
+                                                })
+                                              }}
+                                              className='bg-blue-400 p-2 rounded-md'
+                                            >
+                                              Yes
+                                            </button>
+                                            <button
+                                              onClick={() => {
+                                                addToolResult({
+                                                  toolCallId,
+                                                  result: 'No, denied'
+                                                })
+                                              }
+                                              }
+                                              className='bg-orange-400 p-2 rounded-md'
+                                            >
+                                              No
+                                            </button>
+                                          </>
+                                            )}
+                                      </div>
+                                    </div>
+                                )
+                              }
+
+                              // other tools:
+                              return 'result' in toolInvocation
+                                ? (
+                                <div key={toolCallId}>
+                                    Tool call {`${toolInvocation.toolName}: `}
+                                    {toolInvocation.result}
+                                </div>
+                                  )
+                                : (
+                                  <div key={toolCallId}>Calling {toolInvocation.toolName}...</div>
+                                  )
+                            }
+                            )}
+                        </li>
+                        ))}
+            </ul>
+          </div>
+          {/* <div className='overflow-auto flex-1'>
             <div className='react-scroll-to-bottom relative h-full'>
               <div
                 ref={msgContainer}
@@ -35,7 +120,7 @@ export default function ChatOne () {
                 w-full'
               >
                 <ul className='overflow-auto flex-1 min-h-96'>
-                    {Array.from({ length: 17 }).map((_, idx) => (
+                    {Array.from({ length: 2 }).map((_, idx) => (
                       <li className='message' key={idx}>
                         <p >Me</p>
                         <span>hola</span>
@@ -110,7 +195,7 @@ export default function ChatOne () {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <ChatgptInputExample
            input={input}
