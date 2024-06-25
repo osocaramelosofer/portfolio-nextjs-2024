@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function ChatLayout ({ children }: { children: React.ReactNode }) {
   return (
-    <section className='bg-orange-200 w-full h-full'>
+    <main className='w-screen h-dvh'>
       {children}
-    </section>
+    </main>
   )
 }

@@ -18,7 +18,7 @@ export default function ChatTwo () {
 
   return (
     <>
-        <main>
+        <section className='max-h-[500px]'>
             <ul>
               {conversation.map((m, index) => (
                 <div key={index}>
@@ -34,9 +34,8 @@ export default function ChatTwo () {
                   </li>
                 </div>
               ))}
-
             </ul>
-        </main>
+        </section>
 
         <div>
           <input

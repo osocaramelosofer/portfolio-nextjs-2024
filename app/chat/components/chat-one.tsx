@@ -26,16 +26,16 @@ export default function ChatOne () {
 
   return (
     <>
-        <main className='flex flex-col h-full gap-y-2'>
-          <div className='overflow-hidden flex-1'>
+        <section className='presentation flex flex-col h-full gap-y-2 max-h-[500px]'>
+          <div className='overflow-auto flex-1'>
             <div className='react-scroll-to-bottom relative h-full'>
               <div
                 ref={msgContainer}
                 className='react-scroll-to-bottom h-full overflow-y-auto
                 w-full'
               >
-                <ul className='overflow-hidden flex-1 min-h-96'>
-                    {Array.from({ length: 7 }).map((_, idx) => (
+                <ul className='overflow-auto flex-1 min-h-96'>
+                    {Array.from({ length: 17 }).map((_, idx) => (
                       <li className='message' key={idx}>
                         <p >Me</p>
                         <span>hola</span>
@@ -118,7 +118,7 @@ export default function ChatOne () {
            handleSubmit={handleSubmit}
           //  msgContainer={msgContainer}
           />
-        </main>
+        </section>
     </>
   )
 }
