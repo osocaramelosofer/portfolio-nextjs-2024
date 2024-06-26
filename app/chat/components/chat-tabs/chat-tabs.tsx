@@ -6,6 +6,7 @@ import { TabButtons } from './tab-buttons'
 import TabContent from './tab-content'
 import ChatOne from '../chat-one'
 import ChatTwo from '../chat-two'
+import ChatThree from '../chat-three'
 
 export interface IContentTab {
   reactNode: ReactElement
@@ -16,9 +17,12 @@ const data: IContentTab[] = [
   },
   {
     reactNode: <ChatTwo />
+  },
+  {
+    reactNode: <ChatThree />
   }
 ]
-const tabNames = ['Chat 1', 'Chat 2']
+const tabNames = ['Chat 1', 'Chat 2', 'Chat 3']
 export default function ChatTabs () {
   const [activeTab, setActiveTab] = useState(0)
 
