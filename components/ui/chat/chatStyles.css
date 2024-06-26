@@ -1,0 +1,40 @@
+.message{
+    display: flex;
+    flex-direction: column;
+    margin: 4px 0;
+    padding: 4px 8px;
+    
+    span {
+      width: 36px;
+      height: 36px;
+      background: #eee;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999999px;
+    }
+    p, div {
+        border-radius: 4px;
+        padding: 4px 8px;
+        margin-top: 4px;
+        max-width: 500px;
+    }
+    &.user {
+      align-self: flex-end;
+      align-items: flex-end;
+
+      span,
+      p {
+        background: rgb(219, 236, 255);
+      }
+    }
+    &.bot {
+      align-self: flex-start;
+      span,
+      div {
+        background: rgb(198, 255, 220);
+      }
+    }
+}

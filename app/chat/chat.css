@@ -29,38 +29,37 @@ ul{
     padding: 4px 8px;
     
     span {
-        width: 36px;
-        height: 36px;
-        background: #eee;
-        font-size: 12px;
-        font-weight: 500;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 999999px;
+      width: 36px;
+      height: 36px;
+      background: #eee;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999999px;
     }
     p {
         border-radius: 4px;
         padding: 4px 8px;
         margin-top: 4px;
         max-width: 500px;
-      }
-      &.user {
-        align-self: flex-end;
-        align-items: flex-end;
+    }
+    &.user {
+      align-self: flex-end;
+      align-items: flex-end;
 
-        span,
-        p {
-          background: rgb(219, 236, 255);
-        }
+      span,
+      p {
+        background: rgb(219, 236, 255);
       }
-      &.bot {
-        align-self: flex-start;
-
-        span,
-        p {
-          background: rgb(198, 255, 220);
-        }
+    }
+    &.bot {
+      align-self: flex-start;
+      span,
+      p {
+        background: rgb(198, 255, 220);
+      }
     }
 }
 
