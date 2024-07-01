@@ -66,7 +66,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           { role: 'assistant', content }
         ])
       }
-      return <div className='bg-blue-200 p-10'>{content}</div>
+      return <div className=''>{content}</div>
     },
     tools: {
       searchFlights: {
@@ -77,11 +77,12 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           date: z.string().describe('The date of the flight')
         }),
         generate: async function * ({ source, destination, date }) {
-          yield `Searching for flights from ${source} to ${destination} on ${date}...`
+          // yield `Searching for flights from ${source} to ${destination} on ${date}...`
+          yield <LoadingComponent />
           const results = await searchFlights(source, destination, date)
 
           return (
-            <Flights flights={results} />
+            <Flights flights={results} destination={destination} source={source} />
           )
         }
       },
@@ -95,7 +96,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           const details = await lookupFlight(flightNumber)
 
           return (
-            <div>
+            <div className='bg-blue-400 p-2 rounded-md'>
               <div>Flight Number: {details.flightNumber}</div>
               <div>Departure Time: {details.departureTime}</div>
               <div>Arrival Time: {details.arrivalTime}</div>
