@@ -1,6 +1,6 @@
 'use server'
 
-import { createAI, getMutableAIState, streamUI } from 'ai/rsc'
+import { getMutableAIState, streamUI } from 'ai/rsc'
 import { openai } from '@ai-sdk/openai'
 import { type ReactNode } from 'react'
 import { z } from 'zod'
@@ -56,7 +56,6 @@ export async function continueConversation (
             }
           ])
 
-          //   return <Stock symbol={symbol} numOfMonths={numOfMonths} />
           return <AvatarPhoto username={username} />
         }
       }
@@ -69,11 +68,3 @@ export async function continueConversation (
     display: result.value
   }
 }
-
-// export const AI = createAI<ServerMessage[], ClientMessage[]>({
-//   actions: {
-//     continueConversation
-//   },
-//   initialAIState: [],
-//   initialUIState: []
-// })

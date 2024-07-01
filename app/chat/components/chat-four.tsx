@@ -72,9 +72,7 @@ const botMessage = (msg: ClientMessage) => {
       className='message bot'
     >
       <span>AI</span>
-      <div className='max-w-16 '>
-        {msg.display}
-      </div>
+      {msg.display}
     </li>
   )
 }

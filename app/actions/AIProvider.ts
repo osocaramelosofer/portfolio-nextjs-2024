@@ -3,6 +3,7 @@ import { generateText } from 'ai'
 import { createAI, getMutableAIState } from 'ai/rsc'
 import { type ReactNode } from 'react'
 import { continueConversation } from './routeComponentschat4'
+import { streamComponent } from './streamingComponents'
 
 // Define the AI state and UI state types
 export interface ServerMessage {
@@ -43,6 +44,7 @@ export const AI = createAI<AIState, UIState>({
   initialAIState: [],
   initialUIState: [],
   actions: {
-    continueConversation
+    continueConversation,
+    streamComponent
   }
 })

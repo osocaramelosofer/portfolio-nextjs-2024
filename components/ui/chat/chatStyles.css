@@ -32,9 +32,6 @@
     }
     &.bot {
       align-self: flex-start;
-      span,
-      div {
-        background: rgb(198, 255, 220);
-      }
+      background: rgb(198, 255, 220);
     }
 }
