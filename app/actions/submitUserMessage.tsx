@@ -4,6 +4,7 @@ import { openai } from '@ai-sdk/openai'
 import { z } from 'zod'
 import { generateId } from 'ai'
 import { type ServerMessage, type ClientMessage } from './AIProvider'
+import { Flights } from '../chat/components/flights'
 
 const searchFlights = async (
   source: string,
@@ -80,13 +81,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           const results = await searchFlights(source, destination, date)
 
           return (
-            <div>
-              {results.map(result => (
-                <div key={result.id}>
-                  <div>{result.flightNumber}</div>
-                </div>
-              ))}
-            </div>
+            <Flights flights={results} />
           )
         }
       },

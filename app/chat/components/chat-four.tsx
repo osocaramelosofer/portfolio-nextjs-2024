@@ -18,6 +18,7 @@ export default function ChatFour () {
   const [conversation, setConversation] = useUIState()
   const { submitUserMessage, continueConversation } = useActions()
   const [input, setInput] = useState('')
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setInput('')
@@ -33,6 +34,7 @@ export default function ChatFour () {
       message
     ])
   }
+
   const handleSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setInput('')
