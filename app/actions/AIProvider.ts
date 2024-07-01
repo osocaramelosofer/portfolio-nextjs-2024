@@ -2,9 +2,9 @@ import { openai } from '@ai-sdk/openai'
 import { generateText } from 'ai'
 import { createAI, getMutableAIState } from 'ai/rsc'
 import { type ReactNode } from 'react'
-import { continueConversation } from './routeComponentschat4'
+import { continueConversation } from './continueConversation'
 import { streamComponent } from './streamingComponents'
-import { submitUserMessage } from './flightActions'
+import { submitUserMessage } from './submitUserMessage'
 
 // Define the AI state and UI state types
 export interface ServerMessage {

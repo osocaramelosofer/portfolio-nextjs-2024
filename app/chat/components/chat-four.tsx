@@ -5,7 +5,7 @@
 import { useState, type FormEvent } from 'react'
 import { useActions, useUIState } from 'ai/rsc'
 import { generateId } from 'ai'
-import { type ClientMessage } from '@/app/actions/AIProvider'
+import { type AI, type ClientMessage } from '@/app/actions/AIProvider'
 import ChatContainer from '@/components/ui/chat/chat-container'
 import { ChatgptInput } from '@/components/ui/chat/chat-input'
 import '@/components/ui/chat/chatStyles.css'
@@ -16,7 +16,7 @@ export const maxDuration = 30
 
 export default function ChatFour () {
   const [conversation, setConversation] = useUIState()
-  const { continueConversation } = useActions()
+  const { submitUserMessage, continueConversation } = useActions()
   const [input, setInput] = useState('')
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -27,6 +27,21 @@ export default function ChatFour () {
     ])
 
     const message = await continueConversation(input)
+
+    setConversation((currentConversation: ClientMessage[]) => [
+      ...currentConversation,
+      message
+    ])
+  }
+  const handleSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setInput('')
+    setConversation((currentConversation: ClientMessage[]) => [
+      ...currentConversation,
+      { id: generateId(), role: 'user', display: input }
+    ])
+
+    const message = await submitUserMessage(input)
 
     setConversation((currentConversation: ClientMessage[]) => [
       ...currentConversation,
@@ -49,7 +64,7 @@ export default function ChatFour () {
         </ul>
       </ChatContainer>
 
-      <ChatgptInput handleSubmit={handleSubmit} input={input} setInput={setInput} />
+      <ChatgptInput handleSubmit={handleSubmit2} input={input} setInput={setInput} />
     </section>
   )
 }

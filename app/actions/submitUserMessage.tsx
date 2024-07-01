@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/return-await */
-import { streamUI } from 'ai/rsc'
+import { getMutableAIState, streamUI } from 'ai/rsc'
 import { openai } from '@ai-sdk/openai'
 import { z } from 'zod'
+import { generateId } from 'ai'
+import { type ServerMessage, type ClientMessage } from './AIProvider'
 
 const searchFlights = async (
   source: string,
@@ -19,6 +21,24 @@ const searchFlights = async (
     }
   ]
 }
+const LoadingComponent = () => (
+    <div className="animate-pulse p-4">getting weather...</div>
+)
+const getWeather = async (location: string) => {
+  await new Promise(resolve => setTimeout(resolve, 2000))
+  return '82°F️ ☀️'
+}
+
+interface WeatherProps {
+  location: string
+  weather: string
+}
+
+const WeatherComponent = (props: WeatherProps) => (
+    <div className="border border-neutral-200 p-4 rounded-lg max-w-fit">
+      The weather in {props.location} is {props.weather}
+    </div>
+)
 
 const lookupFlight = async (flightNumber: string) => {
   return {
@@ -28,14 +48,25 @@ const lookupFlight = async (flightNumber: string) => {
   }
 }
 
-export async function submitUserMessage (input: string) {
+export async function submitUserMessage (input: string): Promise<ClientMessage> {
   'use server'
-  console.log('searching for flights')
-  const ui = await streamUI({
+  const history = getMutableAIState()
+  // Update the AI state with the new user message.
+  history.update([...history.get(), { role: 'user', content: input }])
+
+  const result = await streamUI({
     model: openai('gpt-3.5-turbo'),
     system: 'you are a flight booking assistant',
-    prompt: input,
-    text: async ({ content }) => <div className='bg-red-200 p-10'>{content}</div>,
+    messages: [...history.get(), { role: 'user', content: input }],
+    text: ({ content, done }) => {
+      if (done) {
+        history.done((messages: ServerMessage[]) => [
+          ...messages,
+          { role: 'assistant', content }
+        ])
+      }
+      return <div className='bg-blue-200 p-10'>{content}</div>
+    },
     tools: {
       searchFlights: {
         description: 'search for flights',
@@ -76,9 +107,23 @@ export async function submitUserMessage (input: string) {
             </div>
           )
         }
+      },
+      getWeather: {
+        description: 'Get the weather for a location',
+        parameters: z.object({ location: z.string() }),
+        generate: async function * ({ location }) {
+          yield <LoadingComponent />
+          const weather = await getWeather(location)
+          return <WeatherComponent weather={weather} location={location}/>
+        }
       }
     }
   })
 
-  return ui.value
+  // return result.value
+  return {
+    id: generateId(),
+    role: 'assistant',
+    display: result.value
+  }
 }
