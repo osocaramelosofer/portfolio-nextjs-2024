@@ -20,7 +20,7 @@ export default function ChatFour () {
   const [input, setInput] = useState('')
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setInput(input)
+    setInput('')
     setConversation((currentConversation: ClientMessage[]) => [
       ...currentConversation,
       { id: generateId(), role: 'user', display: input }

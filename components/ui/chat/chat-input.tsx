@@ -40,7 +40,6 @@ export function ChatgptInput ({ handleSubmit, setInput, input }: IChatInputProps
         const form = formRef.current
         const submitEvent = new Event('submit', { cancelable: true, bubbles: true })
         form.dispatchEvent(submitEvent)
-        setInput('')
       }
     }
   }

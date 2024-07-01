@@ -38,12 +38,12 @@ export default function ChatOne () {
               ref={msgContainer}
           >
             <ul className='overflow-auto flex-1'>
-                {Array.from({ length: 21 }).map((_, idx) => (
+                {/* {Array.from({ length: 21 }).map((_, idx) => (
                   <li className='message' key={idx}>
                     <p >Me</p>
                     <span>hola</span>
                   </li>
-                ))}
+                ))} */}
                 {messages.map(m => (
                 <li
                     key={m.id}

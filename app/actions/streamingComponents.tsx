@@ -44,5 +44,6 @@ export async function streamComponent () {
     }
   })
 
-  return await result.value
+  // eslint-disable-next-line @typescript-eslint/return-await
+  return result.value
 }
