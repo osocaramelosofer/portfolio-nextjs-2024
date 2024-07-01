@@ -3,8 +3,10 @@ import { type FormEvent, useEffect, useRef } from 'react'
 
 interface IChatInputProps {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void
+  input: string
+  setInput: (input: string) => void
 }
-export function ChatgptInput ({ handleSubmit }: IChatInputProps) {
+export function ChatgptInput ({ handleSubmit, setInput, input }: IChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const formRef = useRef<HTMLFormElement | null>(null)
 
@@ -38,6 +40,7 @@ export function ChatgptInput ({ handleSubmit }: IChatInputProps) {
         const form = formRef.current
         const submitEvent = new Event('submit', { cancelable: true, bubbles: true })
         form.dispatchEvent(submitEvent)
+        setInput('')
       }
     }
   }
@@ -64,6 +67,8 @@ export function ChatgptInput ({ handleSubmit }: IChatInputProps) {
               <textarea
                 ref={textareaRef}
                 name='message'
+                value={input}
+                onChange={e => { setInput(e.target.value) }}
                 placeholder="Write your message here..."
                 className='resize-none max-h-[25vh] h-7'
                 onKeyDown={handleKeyDown}

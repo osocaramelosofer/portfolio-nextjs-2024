@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
-import { type FormEvent } from 'react'
+import { useState, type FormEvent } from 'react'
 import { useActions, useUIState } from 'ai/rsc'
 import { generateId } from 'ai'
 import { type ClientMessage } from '@/app/actions/AIProvider'
@@ -17,14 +17,16 @@ export const maxDuration = 30
 export default function ChatFour () {
   const [conversation, setConversation] = useUIState()
   const { continueConversation } = useActions()
+  const [input, setInput] = useState('')
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    setInput(input)
     setConversation((currentConversation: ClientMessage[]) => [
       ...currentConversation,
-      { id: generateId(), role: 'user', display: event.target.message.value }
+      { id: generateId(), role: 'user', display: input }
     ])
 
-    const message = await continueConversation(event.target.message.value)
+    const message = await continueConversation(input)
 
     setConversation((currentConversation: ClientMessage[]) => [
       ...currentConversation,
@@ -35,7 +37,7 @@ export default function ChatFour () {
   return (
     <section className='message-container flex flex-col gap-y-2 max-h-[80vh] bg-white'>
       <ChatContainer messages={conversation}>
-        <ul className='flex flex-col list-none p-0'>
+        <ul className='flex flex-col list-none p-0 overflow-auto flex-1'>
           {conversation.map((message: ClientMessage) => {
             if (message.role === 'user') {
               return userMessage(message)
@@ -47,7 +49,7 @@ export default function ChatFour () {
         </ul>
       </ChatContainer>
 
-      <ChatgptInput handleSubmit={handleSubmit} />
+      <ChatgptInput handleSubmit={handleSubmit} input={input} setInput={setInput} />
     </section>
   )
 }
