@@ -4,7 +4,6 @@ import Container from './../ui/container'
 import styles from './styles.module.css'
 import { Dots } from '@/components/ui/dots'
 import { cn } from '@/lib/utils'
-import { Button } from '@nextui-org/react'
 
 export default function HeroSection () {
   return (

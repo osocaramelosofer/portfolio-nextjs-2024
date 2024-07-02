@@ -131,7 +131,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
             <div>
               <span>Suggested places:</span>
               <div className='flex flex-wrap gap-x-2 items-center'>
-                {places.map((item, i) => {
+                {places.map((item: any, i: number) => {
                   return (
                     <div
                       key={i}

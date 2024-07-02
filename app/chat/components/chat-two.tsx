@@ -5,7 +5,7 @@
 
 import { useState } from 'react'
 // import { getAnswer } from '@/app/actions/actions'
-import { type Message, continueConversation } from '@/app/actions/continueConversation'
+import { type Message, continueConversation } from '@/app/actions/toolCalling'
 
 // Force the page to be dynamic and allow streaming responses up to 30 seconds
 export const dynamic = 'force-dynamic'
