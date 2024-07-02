@@ -4,6 +4,7 @@
 'use client'
 
 import { type ClientMessage } from '@/app/actions/AIProvider'
+import { Button } from '@nextui-org/react'
 import { useActions, useUIState } from 'ai/rsc'
 
 interface FlightsProps {
@@ -27,18 +28,30 @@ export const Flights = ({ flights, destination, source }: FlightsProps) => {
         <div className='flex flex-1'>
             {flights.map(result => (
             <div key={result.id}>
-            <div
-            className='bg-sky-400 rounded-sm py-4 text-white hover:cursor-pointer'
-                onClick={async () => {
-                  const response = await submitUserMessage(`lookupFlight ${result.flightNumber}`)
-                  setConversation((currentConversation: ClientMessage[]) => [
-                    ...currentConversation,
-                    response
-                  ])
-                }}
-            >
+               <Button
+               color="danger"
+               onPress={async () => {
+                 const response = await submitUserMessage(`lookupFlight ${result.flightNumber}`)
+                 setConversation((currentConversation: ClientMessage[]) => [
+                   ...currentConversation,
+                   response
+                 ])
+               }}
+               >
                 {result.flightNumber}
-            </div>
+              </Button>
+              {/* <div
+              className='bg-sky-400 rounded-sm py-4 text-white hover:cursor-pointer'
+                  onClick={async () => {
+                    const response = await submitUserMessage(`lookupFlight ${result.flightNumber}`)
+                    setConversation((currentConversation: ClientMessage[]) => [
+                      ...currentConversation,
+                      response
+                    ])
+                  }}
+              >
+                  {result.flightNumber}
+              </div> */}
             </div>
             ))}
         </div>

@@ -130,12 +130,12 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           return (
             <div>
               <span>Suggested places:</span>
-              <div className='flex flex-wrap gap-x-2'>
+              <div className='flex flex-wrap gap-x-2 items-center'>
                 {places.map((item, i) => {
                   return (
                     <div
                       key={i}
-                      className='rounded-md p-4 flex flex-col flex-1 gap-y-3 bg-[#212121]'
+                      className='w-[180px] rounded-md p-4 flex flex-col flex-auto gap-y-3 bg-[#322e2e]'
                     >
                       <div className='w-32 h-32 rounded-md'>
                         <img
@@ -143,7 +143,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
                           src={item.photos[0]} alt="place photo"
                         />
                       </div>
-                      <span className='max-w-5'>
+                      <span className=''>
                           {item.name}
                       </span>
                       {/* <span>{item.rating}</span>

@@ -30,10 +30,8 @@ export async function searchPlaces ({ destination, budget, people, details }: IS
       redirect: 'follow',
       cache: 'no-cache'
     }
-    console.log('here 11')
     const placesResponse = await fetch(`${BASE_URL}/api/v1/babelon/search-places`, requestOptions)
     const jsonResponse = await placesResponse.json()
-    console.log('here 22', jsonResponse)
     return jsonResponse
   } catch (error) {
     return null
