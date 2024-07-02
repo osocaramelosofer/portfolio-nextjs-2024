@@ -18,13 +18,17 @@ export const Flights = ({ flights, destination, source }: FlightsProps) => {
   const [_, setConversation] = useUIState()
 
   return (
-    <div className='grid'>
-        <p>This are the current flights from: {source} to:{destination} </p>
+    <div className='flex flex-col '>
+        <p>This are the current flights
+            from: <strong>{source} </strong>
+            to: <strong>{destination}</strong>
+        </p>
+        <p>Click to see the details</p>
         <div className='flex flex-1'>
             {flights.map(result => (
             <div key={result.id}>
             <div
-            className='bg-red-500 rounded-sm p-2 text-white hover:cursor-pointer'
+            className='bg-sky-400 rounded-sm py-4 text-white hover:cursor-pointer'
                 onClick={async () => {
                   const response = await submitUserMessage(`lookupFlight ${result.flightNumber}`)
                   setConversation((currentConversation: ClientMessage[]) => [

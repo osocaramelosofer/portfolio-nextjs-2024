@@ -96,7 +96,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           const details = await lookupFlight(flightNumber)
 
           return (
-            <div className='bg-blue-400 p-2 rounded-md'>
+            <div className='bg-[#4B4D4D] p-2 rounded-md font-semibold'>
               <div>Flight Number: {details.flightNumber}</div>
               <div>Departure Time: {details.departureTime}</div>
               <div>Arrival Time: {details.arrivalTime}</div>
