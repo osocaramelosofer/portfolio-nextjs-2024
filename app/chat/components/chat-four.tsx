@@ -82,7 +82,6 @@ const userMessage = (msg: ClientMessage) => {
       <div>
         {msg.display}
       </div>
-      <span>user</span>
     </li>
   )
 }
@@ -93,7 +92,9 @@ const botMessage = (msg: ClientMessage) => {
       className='message bot'
     >
       <span>AI</span>
-      {msg.display}
+      <div>
+        {msg.display}
+      </div>
     </li>
   )
 }
