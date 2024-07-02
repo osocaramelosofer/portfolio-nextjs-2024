@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
 import { type ClientMessage } from '@/app/actions/AIProvider'
 import { useActions, useUIState } from 'ai/rsc'
-import { type ReactNode } from 'react'
 
 interface FlightsProps {
   flights: Array<{ id: string, flightNumber: string }>

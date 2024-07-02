@@ -5,7 +5,7 @@
 import { useState, type FormEvent } from 'react'
 import { useActions, useUIState } from 'ai/rsc'
 import { generateId } from 'ai'
-import { type AI, type ClientMessage } from '@/app/actions/AIProvider'
+import { type ClientMessage } from '@/app/actions/AIProvider'
 import ChatContainer from '@/components/ui/chat/chat-container'
 import { ChatgptInput } from '@/components/ui/chat/chat-input'
 import '@/components/ui/chat/chatStyles.css'
@@ -77,10 +77,12 @@ const userMessage = (msg: ClientMessage) => {
       key={msg.id}
       className='message user'
     >
-      <span>user</span>
-      <p className='max-w-16 bg-blue-400'>
+      {/* <p className='max-w-16 bg-blue-400'>
+      </p> */}
+      <div>
         {msg.display}
-      </p>
+      </div>
+      <span>user</span>
     </li>
   )
 }

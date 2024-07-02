@@ -1,20 +1,10 @@
 .message{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin: 4px 0;
     padding: 4px 8px;
     
-    span {
-      width: 36px;
-      height: 36px;
-      background: #eee;
-      font-size: 12px;
-      font-weight: 500;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 999999px;
-    }
+
     p, div {
         border-radius: 4px;
         padding: 4px 8px;
@@ -23,15 +13,45 @@
     }
     &.user {
       align-self: flex-end;
-      align-items: flex-end;
-
-      span,
-      p {
-        background: rgb(219, 236, 255);
-      }
+      background-color: #18181B;
+      color: white;
     }
     &.bot {
       align-self: flex-start;
       background: rgb(198, 255, 220);
     }
+}
+
+
+form {
+  display: flex;
+
+  input {
+    border-radius: 999999px;
+    flex-grow: 1;
+    border: 0;
+    padding: 8px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background: #09f;
+    border: 0;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px;
+    transition: background .3s ease;
+
+    &[disabled] {
+      background: #ccc;
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background: rgb(0, 104, 173);
+    }
+  }
 }
