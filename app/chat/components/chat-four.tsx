@@ -91,7 +91,7 @@ const botMessage = (msg: ClientMessage) => {
       key={msg.id}
       className='message bot'
     >
-      <span>AI</span>
+      <span className='icon'>AI</span>
       <div>
         {msg.display}
       </div>

@@ -6,6 +6,7 @@
     margin: 8px 0;
     padding: 4px 8px;
     border-radius: 30px;
+    max-width: 600px;
 
 
     &.user {
@@ -21,7 +22,7 @@
       background-color: #18181B;
       color:white;
 
-      span {
+      .icon {
         width: 36px;
         height: 36px;
         display: grid;

@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { generateId } from 'ai'
 import { type ServerMessage, type ClientMessage } from './AIProvider'
 import { Flights } from '../chat/components/flights'
+import { searchPlaces } from '@/services/search-places'
 
 const searchFlights = async (
   source: string,
@@ -111,6 +112,49 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
           yield <LoadingComponent />
           const weather = await getWeather(location)
           return <WeatherComponent weather={weather} location={location}/>
+        }
+      },
+      searchPlaces: {
+        description: 'Search suggestions of places on base a given destination, budget',
+        parameters: z.object({
+          destination: z.string().describe('The location where the user wants the suggestions of the places'),
+          budget: z.string().describe('The budget the user has to spend to visit those places'),
+          people: z.number().describe('Number of people who are planned to go on the trip').nullish().default(null),
+          details: z.string().describe('Extra details').nullish().default(null)
+        }),
+        generate: async function * ({ destination, budget, people, details }) {
+          // yield `Searching for flights from ${source} to ${destination} on ${date}...`
+          yield <LoadingComponent />
+          const { babelonPlaces } = await searchPlaces({ destination, budget, people, details })
+          const places = babelonPlaces.babelonActivities
+          return (
+            <div>
+              <span>Suggested places:</span>
+              <div className='flex flex-wrap gap-x-2'>
+                {places.map((item, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className='rounded-md p-4 flex flex-col flex-1 gap-y-3 bg-[#212121]'
+                    >
+                      <div className='w-32 h-32 rounded-md'>
+                        <img
+                          className='w-full h-full object-cover'
+                          src={item.photos[0]} alt="place photo"
+                        />
+                      </div>
+                      <span className='max-w-5'>
+                          {item.name}
+                      </span>
+                      {/* <span>{item.rating}</span>
+                      <span>{item.pricing}</span> */}
+                    </div>
+                  )
+                })}
+              </div>
+
+            </div>
+          )
         }
       }
     }
