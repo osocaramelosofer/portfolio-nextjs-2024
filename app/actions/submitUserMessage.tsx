@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/return-await */
 import { getMutableAIState, streamUI } from 'ai/rsc'
 import { openai } from '@ai-sdk/openai'
@@ -23,8 +24,8 @@ const searchFlights = async (
     }
   ]
 }
-const LoadingComponent = () => (
-    <div className="animate-pulse p-4">getting weather...</div>
+const LoadingComponent = ({ text }: { text: string }) => (
+    <div className="animate-pulse p-4">{text}...</div>
 )
 const getWeather = async (location: string) => {
   await new Promise(resolve => setTimeout(resolve, 2000))
@@ -58,7 +59,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
 
   const result = await streamUI({
     model: openai('gpt-3.5-turbo'),
-    system: 'you are a flight booking assistant',
+    system: 'You are an expert travel agent',
     messages: [...history.get(), { role: 'user', content: input }],
     text: ({ content, done }) => {
       if (done) {
@@ -79,7 +80,7 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
         }),
         generate: async function * ({ source, destination, date }) {
           // yield `Searching for flights from ${source} to ${destination} on ${date}...`
-          yield <LoadingComponent />
+          yield <LoadingComponent text='Searching flights' />
           const results = await searchFlights(source, destination, date)
 
           return (
@@ -109,52 +110,59 @@ export async function submitUserMessage (input: string): Promise<ClientMessage> 
         description: 'Get the weather for a location',
         parameters: z.object({ location: z.string() }),
         generate: async function * ({ location }) {
-          yield <LoadingComponent />
+          yield <LoadingComponent text='Getting weather' />
           const weather = await getWeather(location)
           return <WeatherComponent weather={weather} location={location}/>
         }
       },
       searchPlaces: {
-        description: 'Search suggestions of places on base a given destination, budget',
+        description: 'Search suggestions of places on base a given destination and category(activities, hotels, clubs,  restaurants)',
         parameters: z.object({
           destination: z.string().describe('The location where the user wants the suggestions of the places'),
-          budget: z.string().describe('The budget the user has to spend to visit those places'),
-          people: z.number().describe('Number of people who are planned to go on the trip').nullish().default(null),
-          details: z.string().describe('Extra details').nullish().default(null)
+          category: z.string().describe('Number of people who are planned to go on the trip'),
+          details: z.string().describe('Extra details')
         }),
-        generate: async function * ({ destination, budget, people, details }) {
+        generate: async function * ({ destination, details, category }) {
           // yield `Searching for flights from ${source} to ${destination} on ${date}...`
-          yield <LoadingComponent />
-          const { babelonPlaces } = await searchPlaces({ destination, budget, people, details })
-          const places = babelonPlaces.babelonActivities
-          return (
-            <div>
-              <span>Suggested places:</span>
-              <div className='flex flex-wrap gap-x-2 items-center'>
-                {places.map((item: any, i: number) => {
-                  return (
-                    <div
-                      key={i}
-                      className='w-[180px] rounded-md p-4 flex flex-col flex-auto gap-y-3 bg-[#322e2e]'
-                    >
-                      <div className='w-32 h-32 rounded-md'>
-                        <img
-                          className='w-full h-full object-cover'
-                          src={item.photos[0]} alt="place photo"
-                        />
-                      </div>
-                      <span className=''>
-                          {item.name}
-                      </span>
-                      {/* <span>{item.rating}</span>
-                      <span>{item.pricing}</span> */}
-                    </div>
-                  )
-                })}
-              </div>
-
-            </div>
-          )
+          yield <LoadingComponent text='Searching Places' />
+          const response = await searchPlaces({ destination, details, category })
+          if (response && response.success) {
+            const { places, suggestedPlaces } = response
+            console.log('places:', places, suggestedPlaces)
+            if (places) {
+              return (
+                <div>
+                  <span>Suggested places:</span>
+                  <div className='flex flex-wrap gap-2 items-center'>
+                    {places.map((item, i: number) => {
+                      return (
+                        <div
+                          key={item.placeId}
+                          className='w-[180px] rounded-md p-4 flex flex-col flex-auto gap-y-3 bg-[#322e2e]'
+                        >
+                          <div className='w-full max-h-48 rounded-md'>
+                            <img
+                              className='object-cover h-full'
+                              src={item.photosUrls[0]} alt="place photo"
+                            />
+                          </div>
+                          <span className='bg-black rounded-sm text-center my-2'>
+                              {item.name}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            } else {
+              return (
+                <div>
+                  We could not find places for tha location, try with other one
+                </div>
+              )
+            }
+          }
         }
       }
     }

@@ -1,5 +1,4 @@
 'use client'
-import './chat.css'
 import ChatTabs from './components/chat-tabs/chat-tabs'
 
 export default function ChatPage () {
