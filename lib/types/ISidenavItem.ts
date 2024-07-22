@@ -5,3 +5,8 @@ export interface SideNavItem {
   submenu?: boolean
   subMenuItems?: SideNavItem[]
 }
+
+export interface MenuItemWithSubMenuProps {
+  item: SideNavItem
+  toggleOpen: () => void
+}
