@@ -18,10 +18,13 @@ import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { NavItems } from '@/lib/constants/menu';
 // import { Menu } from 'lucide-react';
 import { MdOutlineMenu } from 'react-icons/md';
+import HeaderMobile, { MenuToggle } from '@/app/chat/components/header-mobile';
+import { useCycle } from 'framer-motion';
 
 export default function HeaderTwo() {
   const navItems = NavItems();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, toggleOpen] = useCycle(false, true)
 
   return (
     <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 justify-between">
@@ -30,7 +33,7 @@ export default function HeaderTwo() {
         className="flex items-center gap-2 text-lg font-semibold md:text-base"
         prefetch={false}
       >
-        <span className="w-8 h-8 border bg-accent rounded-full" />
+        <span className="w-8 h-8 border bg-red-400 rounded-full" />
         <span>Acme Inc</span>
       </Link>
 
@@ -40,7 +43,7 @@ export default function HeaderTwo() {
             <Button
               variant="outline"
               size="icon"
-              className="overflow-hidden rounded-full"
+              className="overflow-hidden rounded-full mr-10 md:mr-0"
             >
               <Avatar>
                 <AvatarImage
@@ -61,7 +64,9 @@ export default function HeaderTwo() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <button onClick={() => setIsOpen(true)} className="block sm:hidden">
+        {/* <MenuToggle toggle={toggleOpen} /> */}
+        <HeaderMobile />
+        {/* <button onClick={() => setIsOpen(true)} className="block sm:hidden">
           <MdOutlineMenu  size={24} />
         </button>
 
@@ -87,7 +92,7 @@ export default function HeaderTwo() {
               ))}
             </div>
           </SheetContent>
-        </Sheet>
+        </Sheet> */}
       </div>
     </header>
   );

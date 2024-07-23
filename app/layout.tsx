@@ -30,6 +30,7 @@ export default function RootLayout ({
         <body className=''>
           <Providers>
             <HeaderTwo />
+            {/* <HeaderMobile /> */}
             <div className="flex">
               <SideNavTwo />
               <div className="w-full overflow-x-auto">

@@ -3,7 +3,6 @@ import React, { type ReactNode, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SIDENAV_ITEMS } from '@/lib/constants/menu'
-// import { Icon } from '@iconify/react'
 import { motion, useCycle } from 'framer-motion'
 import { type MenuItemWithSubMenuProps } from '@/lib/types/ISidenavItem'
 import { IoChevronDown } from 'react-icons/io5'
@@ -42,54 +41,54 @@ const HeaderMobile = () => {
   const [isOpen, toggleOpen] = useCycle(false, true)
 
   return (
-        <motion.nav
-        initial={false}
-        animate={isOpen ? 'open' : 'closed'}
-        custom={height}
-        className={`fixed inset-0 z-50 w-full md:hidden
-            ${isOpen ? '' : 'pointer-events-none'}
-            `}
-        ref={containerRef}
-        >
-            <motion.div
-            className='absolute inset-0 right-0 w-full bg-white'
-            variants={sidebar}
-            >
-            </motion.div>
+    <motion.nav
+    initial={false}
+    animate={isOpen ? 'open' : 'closed'}
+    custom={height}
+    className={`fixed inset-0 z-50 w-full md:hidden
+        ${isOpen ? '' : 'pointer-events-none'}
+        `}
+    ref={containerRef}
+    >
+      <motion.div
+      className='absolute inset-0 right-0 w-full bg-white'
+      variants={sidebar}
+      >
+      </motion.div>
 
-            <motion.ul
-            className='absolute grid w-full gap-3 px-10 py-16'
-            variants={variants}
-            >
-                {SIDENAV_ITEMS.map((item, idx) => {
-                  const isLastItem = idx === SIDENAV_ITEMS.length - 1
-                  return (
-                    <div key={idx}>
-                        {item.submenu
-                          ? <MenuItemWithSubMenu item={item} toggleOpen={toggleOpen} />
-                          : <MenuItem>
-                                <Link
-                                href={item.path}
-                                onClick={() => { toggleOpen() }}
-                                className={`flex w-full text-2xl ${
-                                    item.path === pathname ? 'font-bold' : ''
-                                }`}
-                                >
-                                    {item.title}
-                                </Link>
-                            </MenuItem>
-                    }
-                    </div>
-                  )
-                })}
-            </motion.ul>
-            <MenuToggle toggle={toggleOpen} />
-        </motion.nav>
+      <motion.ul
+      className='absolute grid w-full gap-3 px-10 py-16'
+      variants={variants}
+      >
+        {SIDENAV_ITEMS.map((item, idx) => {
+          const isLastItem = idx === SIDENAV_ITEMS.length - 1
+          return (
+            <div key={idx}>
+              {item.submenu
+                ? <MenuItemWithSubMenu item={item} toggleOpen={toggleOpen} />
+                : <MenuItem>
+                      <Link
+                      href={item.path}
+                      onClick={() => { toggleOpen() }}
+                      className={`flex w-full text-2xl ${
+                          item.path === pathname ? 'font-bold' : ''
+                      }`}
+                      >
+                          {item.title}
+                      </Link>
+                  </MenuItem>
+              }
+            </div>
+          )
+        })}
+      </motion.ul>
+      <MenuToggle toggle={toggleOpen} />
+    </motion.nav>
   )
 }
 export default HeaderMobile
 
-const MenuToggle = ({ toggle }: { toggle: any }) => (
+export const MenuToggle = ({ toggle }: { toggle: any }) => (
   <button
     onClick={toggle}
     className="pointer-events-auto absolute right-4 top-[14px] z-30"
