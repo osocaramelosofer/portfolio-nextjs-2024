@@ -1,42 +1,97 @@
-import { Icon } from '@iconify/react'
 import { GoHomeFill } from "react-icons/go";
 import { type SideNavItem } from '@/lib/types/ISidenavItem'
+import { usePathname } from 'next/navigation';
+import { FaBell, FaBriefcase, FaGrinHearts, FaHandsHelping, FaMailBulk, FaUserAlt } from 'react-icons/fa';
+import { IoIosSettings } from 'react-icons/io';
+import { LuMessagesSquare } from "react-icons/lu";
+
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Home',
-    path: '/'
-
+    path: '/',
+    position: 'top'
   },
   {
     title: 'Projects',
-    path: '/projects',
+    path: '/about',
     submenu: true,
     subMenuItems: [
       { title: 'All', path: '/projects' },
       { title: 'Web Design', path: '/projects/web-design' },
       { title: 'Graphic Design', path: '/projects/graphic-design' }
     ],
-    icon: <GoHomeFill />,
+    icon: <GoHomeFill size={20} />,
+    position: 'top'
   },
   {
     title: 'Messages',
-    path: '/messages'
-    // icon: <Icon icon="lucide:mail" width="24" height="24" />,
+    path: '/chat',
+    icon: <FaMailBulk size={20} />,
+    position: 'top'
   },
   {
     title: 'Settings',
-    path: '/settings',
-    // icon: <Icon icon="lucide:settings" width="24" height="24" />,
+    path: '/',
+    icon: <FaGrinHearts size={20} />,
     submenu: true,
     subMenuItems: [
       { title: 'Account', path: '/settings/account' },
       { title: 'Privacy', path: '/settings/privacy' }
-    ]
+    ],
+    position: 'top'
   },
   {
     title: 'Help',
-    path: '/help'
-    // icon: <Icon icon="lucide:help-circle" width="24" height="24" />,
+    path: '/help',
+    icon: <FaHandsHelping size={20} />,
+    position: 'top'
   }
 ]
+
+
+
+export const NavItems = () => {
+  const pathname = usePathname();
+
+  function isNavItemActive(pathname: string, nav: string) {
+    return pathname.includes(nav);
+  }
+
+  return [
+    {
+      name: 'Home',
+      href: '/',
+      icon: <GoHomeFill size={20} />,
+      active: pathname === '/',
+      position: 'top',
+    },
+    {
+      name: 'Chat',
+      href: '/chat',
+      icon: <LuMessagesSquare size={20} />,
+      active: isNavItemActive(pathname, '/chat'),
+    },
+    {
+      name: 'Notifications',
+      href: '/notifications',
+      icon: <FaBell size={20} />,
+      active: isNavItemActive(pathname, '/notifications'),
+      position: 'top',
+    },
+    {
+      name: 'Projects',
+      href: '/projects',
+      icon: <FaBriefcase size={20} />,
+      active: isNavItemActive(pathname, '/projects'),
+      position: 'top',
+    },
+    {
+      name: 'Settings',
+      href: '/settings',
+      icon: <IoIosSettings  size={20} />,
+      active: isNavItemActive(pathname, '/settings'),
+      position: 'bottom',
+    },
+  ];
+};

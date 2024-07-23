@@ -4,6 +4,7 @@ export interface SideNavItem {
   icon?: JSX.Element
   submenu?: boolean
   subMenuItems?: SideNavItem[]
+  position?: string
 }
 
 export interface MenuItemWithSubMenuProps {
