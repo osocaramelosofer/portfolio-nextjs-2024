@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation'
 
 import { SIDENAV_ITEMS } from '@/lib/constants/menu'
 import { type SideNavItem } from '@/lib/types/ISidenavItem'
-import { Icon } from '@iconify/react'
+// import { Icon } from '@iconify/react'
+import { IoChevronDown } from 'react-icons/io5'
 
 const SideNav = () => {
   return (
@@ -57,7 +58,8 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
             </div>
 
             <div className={`${subMenuOpen ? 'rotate-180' : ''} flex`}>
-              <Icon icon="lucide:chevron-down" width="24" height="24" />
+            <IoChevronDown />
+              {/* <Icon icon="lucide:chevron-down" width="24" height="24" /> */}
             </div>
           </button>
 

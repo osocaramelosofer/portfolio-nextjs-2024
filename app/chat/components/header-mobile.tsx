@@ -3,9 +3,10 @@ import React, { type ReactNode, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SIDENAV_ITEMS } from '@/lib/constants/menu'
-import { Icon } from '@iconify/react'
+// import { Icon } from '@iconify/react'
 import { motion, useCycle } from 'framer-motion'
 import { type MenuItemWithSubMenuProps } from '@/lib/types/ISidenavItem'
+import { IoChevronDown } from 'react-icons/io5'
 
 const variants = {
   open: {
@@ -162,7 +163,8 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({
                 {item.title}
               </span>
               <div className={`${subMenuOpen && 'rotate-180'}`}>
-                <Icon icon="lucide:chevron-down" width="24" height="24" />
+              <IoChevronDown />
+                {/* <Icon icon="lucide:chevron-down" width="24" height="24" /> */}
               </div>
             </div>
           </button>
