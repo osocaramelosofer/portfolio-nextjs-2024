@@ -1,7 +1,7 @@
 import { GoHomeFill } from "react-icons/go";
 import { type SideNavItem } from '@/lib/types/ISidenavItem'
 import { usePathname } from 'next/navigation';
-import { FaBell, FaBriefcase, FaGrinHearts, FaHandsHelping, FaMailBulk, FaUserAlt } from 'react-icons/fa';
+import { FaBell, FaBriefcase, FaGrinHearts, FaHandsHelping, FaMailBulk, FaPersonBooth, FaUserAlt } from 'react-icons/fa';
 import { IoIosSettings } from 'react-icons/io';
 import { LuMessagesSquare } from "react-icons/lu";
 
@@ -13,15 +13,15 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     position: 'top'
   },
   {
-    title: 'Projects',
+    title: 'About',
     path: '/about',
     submenu: true,
     subMenuItems: [
-      { title: 'All', path: '/projects' },
+      { title: 'About', path: '/about' },
       { title: 'Web Design', path: '/projects/web-design' },
       { title: 'Graphic Design', path: '/projects/graphic-design' }
     ],
-    icon: <GoHomeFill size={20} />,
+    icon: <FaPersonBooth size={20} />,
     position: 'top'
   },
   {

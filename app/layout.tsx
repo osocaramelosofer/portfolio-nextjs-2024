@@ -11,16 +11,20 @@ import PageWrapper from '@/components/page-wrapper'
 import MarginWidthWrapper from '@/components/margin-with-wrapper'
 import HeaderTwo from '@/components/header-two'
 import SideNavTwo from '@/components/side-nav-two'
+import { createClient } from '@/lib/supabase/server'
 export const metadata: Metadata = {
   title: 'osocarameloso',
   description: 'Web developer'
 }
 
-export default function RootLayout ({
+export default async function RootLayout ({
   children
 }: {
   children: React.ReactNode
 }) {
+  const supabase = createClient()
+  const {data:user } = await supabase.auth.getUser()
+  console.log("user: ", user)
   return (
     <AI>
       <html lang="en" className={`${outfit.variable} ${kenia.variable}`}>
