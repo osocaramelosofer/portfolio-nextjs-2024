@@ -15,6 +15,7 @@ const lottieOptions = {
 }
 
 export default function AboutPage () {
+  
   return (
     <header className={styles.gridContainer}>
       <div className={ styles.squareOne}></div>

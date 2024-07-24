@@ -48,7 +48,7 @@ export default function SideNavTwo() {
   };
 
   return (
-    <div className="">
+    <div className="bg-white">
       <div
         className={cn(
           isSidebarExpanded ? 'w-[200px]' : 'w-[68px]',
