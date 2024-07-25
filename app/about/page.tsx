@@ -18,8 +18,7 @@ const lottieOptions = {
 }
 
 export default async function AboutPage () {
-  const supabase = createClient()
-  const {data:user} = await supabase.auth.getUser() 
+  // const supabase = createClient()
   return (
     <header className={styles.gridContainer}>
       <div className={ styles.squareOne}></div>

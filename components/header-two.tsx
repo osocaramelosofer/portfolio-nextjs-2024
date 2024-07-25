@@ -1,31 +1,29 @@
-'use client';
-
-import React, { useState } from 'react';
-
 import Link from 'next/link';
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuLabel,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { NavItems } from '@/lib/constants/menu';
 // import { Menu } from 'lucide-react';
 import { MdOutlineMenu } from 'react-icons/md';
 import HeaderMobile, { MenuToggle } from '@/app/chat/components/header-mobile';
 import { useCycle } from 'framer-motion';
+import { Dropdown, DropdownMenu, DropdownTrigger, MenuItem } from '@nextui-org/react';
+import DropDownAvatar from './ui/drop-down-avatar';
+import { createClient } from '@/lib/supabase/server';
 
-export default function HeaderTwo() {
-  const navItems = NavItems();
+export default async function HeaderTwo() {
+  // const navItems = NavItems();
   // const [isOpen, setIsOpen] = useState(false);
-  const [isOpen, toggleOpen] = useCycle(false, true)
-
+  // const [isOpen, toggleOpen] = useCycle(false, true)
+  const supabase = createClient()
+  const {data:user} = await supabase.auth.getUser() 
+  console.log("user from header two server:", user)
   return (
     <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 justify-between">
       <Link
@@ -38,31 +36,7 @@ export default function HeaderTwo() {
       </Link>
 
       <div className="ml-4 flex items-center gap-3">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              size="icon"
-              className="overflow-hidden rounded-full mr-10 md:mr-0"
-            >
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <DropDownAvatar user={user} />
 
         {/* <MenuToggle toggle={toggleOpen} /> */}
         <HeaderMobile />

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export default async function AboutLayout({children}:{children: React.ReactNode}) {
     const supabase = createClient()
     const {data:users} = await supabase.from('users').select()
-    const { data: notes } = await supabase.from("notes").select();
+    // const { data: notes } = await supabase.from("notes").select();
       
       
     return(
