@@ -45,13 +45,13 @@ export async function searchPlaces ({ destination, details, category }: ISearchP
     }
 
     return await response.json()
-  } catch (error) {
+  } catch (error: any) {
     console.log(error)
     return {
       success: false,
       error: {
         message: 'fail to fetch places',
-        detail: error.message,
+        detail: error.message ??  'unknown error',
         code: 'FETCH_ERROR'
       }
     }

@@ -1,5 +1,5 @@
 'use client'
-import { avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, MenuItem } from '@nextui-org/react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, MenuItem } from '@nextui-org/react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { createClient } from '@/lib/supabase/client';
@@ -10,7 +10,6 @@ interface DropDownAvatarProps {
 }
 
 export default function DropDownAvatar({user}: DropDownAvatarProps){
-    console.log("user from drop down avatar ", user)
     const [userData, setUserData] = useState<any>()
     if(user.user === null ){
         return(
