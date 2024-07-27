@@ -4,11 +4,9 @@ import DropDownAvatar from './ui/drop-down-avatar';
 import { createClient } from '@/lib/supabase/server';
 import DefaultDropDown from './ui/default-drop-down';
 
-export default async function HeaderTwo() {
+export default async function Header() {
   const supabase = createClient()
   const {data:{ user }} = await supabase.auth.getUser()
-  // const {user} =data
-  console.log("what is user? ",user)
   return (
     <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 justify-between">
       <Link
@@ -26,8 +24,6 @@ export default async function HeaderTwo() {
           ?(<DropDownAvatar user={user} />)
           : (<DefaultDropDown/>) 
         }
-        
-
         <HeaderMobile />
       </div>
     </header>

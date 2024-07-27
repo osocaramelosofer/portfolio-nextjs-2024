@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
 import { Providers } from './providers'
 import { AI } from './actions/AIProvider'
-import HeaderTwo from '@/components/header-two'
+import Header from '@/components/header'
 import SideNavTwo from '@/components/side-nav-two'
 export const metadata: Metadata = {
   title: 'osocarameloso',
@@ -23,7 +23,7 @@ export default async function RootLayout ({
         </head>
         <body className=''>
           <Providers>
-            <HeaderTwo />
+            <Header />
             <div className="flex">
               <SideNavTwo />
               <div className="w-full overflow-x-auto">

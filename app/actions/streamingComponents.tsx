@@ -1,30 +1,30 @@
-'use server'
+'use server';
 
-import { streamUI } from 'ai/rsc'
-import { openai } from '@ai-sdk/openai'
-import { z } from 'zod'
+import { streamUI } from 'ai/rsc';
+import { openai } from '@ai-sdk/openai';
+import { z } from 'zod';
 
 const LoadingComponent = () => (
   <div className="animate-pulse p-4">getting weather...</div>
-)
+);
 
 const getWeather = async (location: string) => {
-  await new Promise(resolve => setTimeout(resolve, 2000))
-  return '82°F️ ☀️'
-}
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return '82°F️ ☀️';
+};
 
 interface WeatherProps {
-  location: string
-  weather: string
+  location: string;
+  weather: string;
 }
 
 const WeatherComponent = (props: WeatherProps) => (
   <div className="border border-neutral-200 p-4 rounded-lg max-w-fit">
     The weather in {props.location} is {props.weather}
   </div>
-)
+);
 
-export async function streamComponent () {
+export async function streamComponent() {
   const result = await streamUI({
     model: openai('gpt-3.5-turbo'),
     prompt: 'Get the weather for San Francisco',
@@ -33,17 +33,17 @@ export async function streamComponent () {
       getWeather: {
         description: 'Get the weather for a location',
         parameters: z.object({
-          location: z.string()
+          location: z.string(),
         }),
-        generate: async function * ({ location }) {
-          yield <LoadingComponent />
-          const weather = await getWeather(location)
-          return <WeatherComponent weather={weather} location={location} />
-        }
-      }
-    }
-  })
+        generate: async function* ({ location }) {
+          yield <LoadingComponent />;
+          const weather = await getWeather(location);
+          return <WeatherComponent weather={weather} location={location} />;
+        },
+      },
+    },
+  });
 
   // eslint-disable-next-line @typescript-eslint/return-await
-  return result.value
+  return result.value;
 }

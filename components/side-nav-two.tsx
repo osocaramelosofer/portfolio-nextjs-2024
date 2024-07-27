@@ -10,19 +10,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { NavItems, SIDENAV_ITEMS  } from '@/lib/constants/menu';
+import { NavItems, SIDENAV_ITEMS } from '@/lib/constants/menu';
 import { cn } from '@/lib/utils';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { MenuItem } from './side-nav';
-import {type SideNavItem as SideNavItem1} from '@/lib/types/ISidenavItem'
+import { type SideNavItem as SideNavItemType } from '@/lib/types/ISidenavItem';
+
+import { usePathname } from 'next/navigation';
+import { IoChevronDown } from 'react-icons/io5';
 // import { } from '@/lib/types/ISidenavItem';
 // import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // import { ThemeToggle } from './theme-toggle';
 
 export default function SideNavTwo() {
-  const navItems = NavItems();
-
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = window.localStorage.getItem('sidebarExpanded');
@@ -77,7 +77,7 @@ export default function SideNavTwo() {
                   );
                 }
               })}
-                        {/* {SIDENAV_ITEMS.map((item, idx) => {
+              {/* {SIDENAV_ITEMS.map((item, idx) => {
             return <MenuItem key={idx} item={item} />
           })} */}
             </div>
@@ -112,9 +112,9 @@ export default function SideNavTwo() {
             onClick={toggleSidebar}
           >
             {isSidebarExpanded ? (
-              <FaChevronLeft size={16} className='stroke-foreground'/>
+              <FaChevronLeft size={16} className="stroke-foreground" />
             ) : (
-              <FaChevronRight size={16} className='stroke-foreground'/>
+              <FaChevronRight size={16} className="stroke-foreground" />
             )}
           </button>
         </div>
@@ -129,7 +129,7 @@ export const SideNavItem: React.FC<{
   path: string;
   active: boolean;
   isSidebarExpanded: boolean;
-  item: SideNavItem1
+  item: SideNavItemType;
 }> = ({ label, icon, path, active, isSidebarExpanded, item }) => {
   return (
     <>
@@ -147,7 +147,7 @@ export const SideNavItem: React.FC<{
         //     <span>{label}</span>
         //   </div>
         // </Link>
-        <MenuItem item={item}/>
+        <MenuItem item={item} />
       ) : (
         <TooltipProvider delayDuration={50}>
           <Tooltip>
@@ -176,5 +176,65 @@ export const SideNavItem: React.FC<{
         </TooltipProvider>
       )}
     </>
+  );
+};
+
+const MenuItem = ({ item }: { item: SideNavItemType }) => {
+  const pathname = usePathname();
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
+  const toggleSubMenu = () => {
+    setSubMenuOpen(!subMenuOpen);
+  };
+
+  return (
+    <div className="">
+      {item.submenu ? (
+        <>
+          <button
+            onClick={toggleSubMenu}
+            className={`flex flex-row items-center p-2 rounded-lg hover-bg-zinc-100 w-full justify-between hover:bg-zinc-100 ${
+              pathname.includes(item.path) ? 'bg-zinc-100' : ''
+            }`}
+          >
+            <div className="flex flex-row space-x-4 items-center">
+              {item.icon}
+              <span className="font-semibold text-xl  flex">{item.title}</span>
+            </div>
+
+            <div className={`${subMenuOpen ? 'rotate-180' : ''} flex`}>
+              <IoChevronDown />
+            </div>
+          </button>
+
+          {subMenuOpen && (
+            <div className="my-2 ml-12 flex flex-col space-y-4">
+              {item.subMenuItems?.map((subItem, idx) => {
+                return (
+                  <Link
+                    key={idx}
+                    href={subItem.path}
+                    className={`${
+                      subItem.path === pathname ? 'font-bold' : ''
+                    }`}
+                  >
+                    <span>{subItem.title}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </>
+      ) : (
+        <Link
+          href={item.path}
+          className={`flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100 ${
+            item.path === pathname ? 'bg-zinc-100' : ''
+          }`}
+        >
+          {item.icon}
+          <span className="font-semibold text-xl flex">{item.title}</span>
+        </Link>
+      )}
+    </div>
   );
 };

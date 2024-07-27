@@ -1,16 +1,24 @@
-import { GoHomeFill } from "react-icons/go";
-import { type SideNavItem } from '@/lib/types/ISidenavItem'
+import { GoHomeFill } from 'react-icons/go';
+import { type SideNavItem } from '@/lib/types/ISidenavItem';
 import { usePathname } from 'next/navigation';
-import { FaBell, FaBriefcase, FaGrinHearts, FaHandsHelping, FaMailBulk, FaPersonBooth, FaUserAlt } from 'react-icons/fa';
+import {
+  FaBell,
+  FaBriefcase,
+  FaGrinHearts,
+  FaHandsHelping,
+  FaMailBulk,
+  FaPersonBooth,
+  FaUserAlt,
+} from 'react-icons/fa';
 import { IoIosSettings } from 'react-icons/io';
-import { LuMessagesSquare } from "react-icons/lu";
-import { FiLogIn } from "react-icons/fi";
+import { LuMessagesSquare } from 'react-icons/lu';
+import { FiLogIn } from 'react-icons/fi';
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Home',
     path: '/',
-    position: 'top'
+    position: 'top',
   },
   {
     title: 'About',
@@ -19,11 +27,11 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     subMenuItems: [
       { title: 'About', path: '/about' },
       { title: 'Web Design', path: '/projects/web-design' },
-      { title: 'Graphic Design', path: '/projects/graphic-design' }
+      { title: 'Graphic Design', path: '/projects/graphic-design' },
     ],
     icon: <FaPersonBooth size={20} />,
-    position: 'top'
-  },  
+    position: 'top',
+  },
   {
     title: 'Settings',
     path: '/',
@@ -31,25 +39,23 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: 'Account', path: '/settings/account' },
-      { title: 'Privacy', path: '/settings/privacy' }
+      { title: 'Privacy', path: '/settings/privacy' },
     ],
-    position: 'top'
+    position: 'top',
   },
   {
     title: 'Help',
     path: '/help',
     icon: <FaHandsHelping size={20} />,
-    position: 'top'
+    position: 'top',
   },
   {
     title: 'Login',
     path: '/login',
-    icon: <FiLogIn  size={20} />,
-    position: 'top'
+    icon: <FiLogIn size={20} />,
+    position: 'top',
   },
-]
-
-
+];
 
 export const NavItems = () => {
   const pathname = usePathname();
@@ -89,7 +95,7 @@ export const NavItems = () => {
     {
       name: 'Settings',
       href: '/settings',
-      icon: <IoIosSettings  size={20} />,
+      icon: <IoIosSettings size={20} />,
       active: isNavItemActive(pathname, '/settings'),
       position: 'bottom',
     },
