@@ -39,7 +39,7 @@ export function Stack() {
               className="cursor-pointer hover:-translate-y-3 transition-all duration-1000"
               key={icon.src}
             >
-              <Image className="w-24 h-12" src={icon.src} alt="skill-icon" />
+              <img className="w-24 h-12" src={icon.src} alt="skill-icon" />
             </li>
           ))}
         </ul>

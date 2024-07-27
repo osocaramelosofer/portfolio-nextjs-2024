@@ -1,6 +1,7 @@
 import { GoHomeFill } from 'react-icons/go';
 import { type SideNavItem } from '@/lib/types/ISidenavItem';
 import { usePathname } from 'next/navigation';
+import { HiChatBubbleLeftRight } from 'react-icons/hi2';
 import {
   FaBell,
   FaBriefcase,
@@ -33,20 +34,14 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     position: 'top',
   },
   {
-    title: 'Settings',
+    title: 'Chat',
     path: '/',
-    icon: <FaGrinHearts size={20} />,
+    icon: <HiChatBubbleLeftRight size={20} />,
     submenu: true,
     subMenuItems: [
-      { title: 'Account', path: '/settings/account' },
-      { title: 'Privacy', path: '/settings/privacy' },
+      { title: 'Search Places', path: '/chat' },
+      { title: 'Chat Group', path: '/chat' },
     ],
-    position: 'top',
-  },
-  {
-    title: 'Help',
-    path: '/help',
-    icon: <FaHandsHelping size={20} />,
     position: 'top',
   },
   {

@@ -34,6 +34,8 @@ export default function HeroSection() {
                    lg:top-6 lg:right-8"
                   src="/images/waving.webp"
                   alt="Picture of the author"
+                  width={20}
+                  height={20}
                 />
               </div>
               <p className={cn('text-medium md:text-lg', outfit.className)}>

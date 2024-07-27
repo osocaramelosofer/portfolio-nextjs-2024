@@ -14,6 +14,8 @@ export function AboutSection() {
               src="/images/profile-picture.webp"
               alt="profile picture"
               className="h-[250px] w-[250px] rounded-large"
+              width={250}
+              height={250}
             />
           </div>
           <div className="h-full mx-auto text-center md:text-left max-w-[525px]">
