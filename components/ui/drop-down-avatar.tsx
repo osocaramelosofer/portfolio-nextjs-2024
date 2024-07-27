@@ -53,4 +53,9 @@ export default function DropDownAvatar({ user }: DropDownAvatarProps) {
 async function signOut() {
   const supabase = createClient();
   const { error } = await supabase.auth.signOut();
+  if (!error) {
+    window.location.reload();
+  } else {
+    console.error('Error signing out:', error);
+  }
 }
