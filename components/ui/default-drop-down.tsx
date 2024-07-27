@@ -4,14 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { createClient } from '@/lib/supabase/client';
 import { useState } from 'react';
+import { FiLogIn } from 'react-icons/fi';
+import { signIn } from '@/lib/actions';
+import { BsGoogle } from 'react-icons/bs';
 
-interface DropDownAvatarProps {
-    user: any | null
-}
 
-export default function DropDownAvatar({user}: DropDownAvatarProps){
 
-    const {avatar_url, email, full_name} = user.user_metadata
+export default function DefaultDropDown(){
+
 
     return(
         <Dropdown backdrop="blur">
@@ -23,7 +23,7 @@ export default function DropDownAvatar({user}: DropDownAvatarProps){
             >
               <Avatar>
                 <AvatarImage
-                  src={avatar_url ?? "https://github.com/shadcn.png"}
+                  src={"https://github.com/shadcn.png"}
                   alt="user profile picture"
                 />
                 <AvatarFallback>CN</AvatarFallback>
@@ -31,26 +31,30 @@ export default function DropDownAvatar({user}: DropDownAvatarProps){
             </Button>
           </DropdownTrigger>
           <DropdownMenu>
-            <DropdownItem key="profile" className="h-14 gap-2">
-                <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">{email}</p>
-            </DropdownItem>
-            <MenuItem>My Account</MenuItem>            
-            <MenuItem>Settings</MenuItem>
-            <MenuItem>Support</MenuItem>
             <DropdownItem>
-                <button
-                onClick={signOut}
-                >
-                  Logout
-                </button>
+                <SignInButton />
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
     )
 }
 
-async function signOut() {
-    const supabase = createClient()
-    const { error } = await supabase.auth.signOut()
-  }
+function SignInButton() {
+  return(
+    <form action={signIn}
+      className="form-login m-auto max-w-max max-y-max"
+    >
+      <button
+      className="flex gap-x-2 items-center backdrop-blur-md bg-black/30
+      rounded-full px-4 py-1"
+      >
+        <span
+        className="font-bold text-white"
+        >
+          sign in with 
+        </span>
+        <BsGoogle className="text-red-500"/>
+      </button>
+    </form>
+  )
+}

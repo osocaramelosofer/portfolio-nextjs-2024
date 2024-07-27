@@ -2,10 +2,13 @@ import Link from 'next/link';
 import HeaderMobile from '@/app/chat/components/header-mobile';
 import DropDownAvatar from './ui/drop-down-avatar';
 import { createClient } from '@/lib/supabase/server';
+import DefaultDropDown from './ui/default-drop-down';
 
 export default async function HeaderTwo() {
   const supabase = createClient()
-  const {data:user} = await supabase.auth.getUser() 
+  const {data:{ user }} = await supabase.auth.getUser()
+  // const {user} =data
+  console.log("what is user? ",user)
   return (
     <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6 justify-between">
       <Link
@@ -18,7 +21,12 @@ export default async function HeaderTwo() {
       </Link>
 
       <div className="ml-4 flex items-center gap-3">
-        <DropDownAvatar user={user} />
+        {
+        user !== null 
+          ?(<DropDownAvatar user={user} />)
+          : (<DefaultDropDown/>) 
+        }
+        
 
         <HeaderMobile />
       </div>

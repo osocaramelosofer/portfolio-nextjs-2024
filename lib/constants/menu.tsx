@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { FaBell, FaBriefcase, FaGrinHearts, FaHandsHelping, FaMailBulk, FaPersonBooth, FaUserAlt } from 'react-icons/fa';
 import { IoIosSettings } from 'react-icons/io';
 import { LuMessagesSquare } from "react-icons/lu";
-
+import { FiLogIn } from "react-icons/fi";
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
@@ -23,13 +23,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
     icon: <FaPersonBooth size={20} />,
     position: 'top'
-  },
-  {
-    title: 'Messages',
-    path: '/chat',
-    icon: <FaMailBulk size={20} />,
-    position: 'top'
-  },
+  },  
   {
     title: 'Settings',
     path: '/',
@@ -46,7 +40,13 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     path: '/help',
     icon: <FaHandsHelping size={20} />,
     position: 'top'
-  }
+  },
+  {
+    title: 'Login',
+    path: '/login',
+    icon: <FiLogIn  size={20} />,
+    position: 'top'
+  },
 ]
 
 
