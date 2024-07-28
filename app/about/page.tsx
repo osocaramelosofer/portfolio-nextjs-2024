@@ -3,6 +3,7 @@ import animationData from '@/lib/lotties/lottie-rock.json';
 import styles from '@/styles/grid.module.css';
 
 import Lottie from 'react-lottie';
+import { toast } from 'sonner';
 
 const lottieOptions = {
   loop: true,
@@ -23,6 +24,9 @@ export default function AboutPage() {
           <Lottie options={lottieOptions} height={200} width={200} />
         </div>
       </div>
+      <button onClick={() => toast('This is a sonner toast')}>
+        Render my toast
+      </button>
       <div className={styles.squareTwo}></div>
     </header>
   );

@@ -9,7 +9,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { createClient } from '@/lib/supabase/client';
-
+import { toast } from 'sonner';
+import { TbLogout2 } from 'react-icons/tb';
 interface DropDownAvatarProps {
   user: any | null;
 }
@@ -55,6 +56,12 @@ async function signOut() {
   const { error } = await supabase.auth.signOut();
   if (!error) {
     window.location.reload();
+    toast('My toast', {
+      className: '',
+      description: "you've logout",
+      duration: 6000,
+      icon: <TbLogout2 />,
+    });
   } else {
     console.error('Error signing out:', error);
   }
