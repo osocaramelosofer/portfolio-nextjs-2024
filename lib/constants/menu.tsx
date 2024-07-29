@@ -39,8 +39,8 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <HiChatBubbleLeftRight size={20} />,
     submenu: true,
     subMenuItems: [
+      { title: 'Planner AI', path: '/chat/planner' },
       { title: 'Search Places', path: '/chat' },
-      { title: 'Chat Group', path: '/chat' },
     ],
     position: 'top',
   },
