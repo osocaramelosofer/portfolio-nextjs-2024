@@ -12,8 +12,8 @@
   background-size: cover;
   border: 3px solid #2d2e32;
   border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-  height: 10rem;
-  width: 10rem;
+  /* height: 10rem;
+  width: 10rem; */
   position: relative;
   transition: all 1s ease-in-out;
 }
@@ -29,7 +29,7 @@
 
 @media (max-width: 768px) {
   .heroImg {
-    width: 15rem;
-    height: 15rem;
+    /* width: 15rem;
+    height: 15rem; */
   }
 }

@@ -2,7 +2,7 @@
 
 import ThemeToggle from '@/components/ui/theme-toogle'
 import { Button } from '@nextui-org/react'
-import { FaGithub } from 'react-icons/fa'
+import { FaGithub, FaUserAstronaut } from 'react-icons/fa'
 import { IoIosColorPalette } from 'react-icons/io'
 import { IoLocationSharp } from 'react-icons/io5'
 import { MdSimCardDownload } from 'react-icons/md'
@@ -13,21 +13,28 @@ export default function Home() {
   return (
     <main>
       <section className="">
-        <div className="w-max h-max flex gap-4 mx-auto text-foreground  rounded-lg items-stretch">
-          <div className="hero rounded-lg p-4 bg-foreground-200 min-h-full flex flex-col justify-between">
-            <div>
+        <div className="py-4 w-max h-max flex flex-col md:flex-row gap-4 mx-auto  text-foreground  rounded-lg items-stretch">
+          <div className="hero rounded-lg p-4 bg-foreground-200 flex flex-col justify-between items-">
+            <div className="flex gap-x-2 items-center">
+              <FaUserAstronaut className="text-4xl bg-black text-white p-2 rounded-lg " />
               <span className="font-rubik">about me</span>
             </div>
 
             <div className="flex flex-col gap-y-2">
-              <div className="image-container flex justify-start mb-4">
-                <div className={`${styles.heroImg}`} />
+              <div className="image-container flex justify-center mt-10 md:mt-0 md:justify-start mb-4">
+                <div
+                  className={`${styles.heroImg} w-[150px] h-[150px] md:w-[10rem] md:h-[10rem]`}
+                />
               </div>
-              <h2 className="font-rubik text-2xl">Fernando Hernandez</h2>
-              <p className="font-lexend">
-                Fullstack developer with +5 years of experience building web
-                applications
-              </p>
+              <h2 className="font-rubik text-lg md:text-2xl">
+                Fernando Hernandez
+              </h2>
+              <div className="w-[270px] md:w-max">
+                <p className="font-lexend break-words text-pretty text-sm md:text-lg">
+                  Fullstack developer with +5 years of experience building web
+                  applications
+                </p>
+              </div>
               <div className="flex gap-x-2">
                 <Button className="rounded-full bg-foreground-50">
                   <MdSimCardDownload />
@@ -40,13 +47,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+
           <div className="contenedor-2 overflow-hidden flex flex-col gap-4 h-full  ">
             <div className="rounded-lg bg-foreground-200 flex flex-col gap-y-10 p-4 ">
               <div className="flex gap-x-2 items-center ">
-                <IoIosColorPalette
-                  className="bg-black text-white p-2 rounded-lg"
-                  size={40}
-                />
+                <IoIosColorPalette className="text-4xl bg-black text-white p-2 rounded-lg" />
                 <span className="font-lexend capitalize text-lg font-semibold">
                   theme
                 </span>
@@ -59,10 +64,7 @@ export default function Home() {
             </div>
             <div className="rounded-lg bg-foreground-200 p-4">
               <div className="flex items-center gap-x-2">
-                <IoLocationSharp
-                  className="bg-black text-white p-2 rounded-lg"
-                  size={40}
-                />
+                <IoLocationSharp className="text-4xl  bg-black text-white p-2 rounded-lg" />
                 <span className="font-lexed text-lg font-semibold">
                   My Location Weather
                 </span>
