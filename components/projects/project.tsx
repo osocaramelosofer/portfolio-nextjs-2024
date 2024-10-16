@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 
 type ProjectProps = (typeof projectsData)[number]
 
-export default function Project ({
+export default function Project({
   title,
   description,
   tags,
@@ -39,10 +39,7 @@ export default function Project ({
           </p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
             {tags.map((tag, index) => (
-              <li
-              className={styles.chip}
-                key={index}
-              >
+              <li className={styles.chip} key={index}>
                 {tag}
               </li>
             ))}

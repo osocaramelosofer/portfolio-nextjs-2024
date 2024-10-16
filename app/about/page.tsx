@@ -14,17 +14,13 @@ const lottieOptions = {
   width: '100%'
 }
 
-export default function AboutPage () {
+export default function AboutPage() {
   return (
     <header className={styles.gridContainer}>
-      <div className={ styles.squareOne}></div>
+      <div className={styles.squareOne}></div>
       <div className={` ${styles.mainContent}`}>
-        <div className='lottie-container max-w-full h-auto'>
-          <Lottie
-            options={lottieOptions}
-            height={200}
-            width={200}
-          />
+        <div className="lottie-container max-w-full h-auto">
+          <Lottie options={lottieOptions} height={200} width={200} />
         </div>
       </div>
       <div className={styles.squareTwo}></div>
