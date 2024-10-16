@@ -2,7 +2,7 @@
 
 import ThemeToggle from '@/components/ui/theme-toogle'
 import { Button } from '@nextui-org/react'
-import { FaGithub, FaUserAstronaut } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaUserAstronaut } from 'react-icons/fa'
 import { IoIosColorPalette } from 'react-icons/io'
 import { IoLocationSharp } from 'react-icons/io5'
 import { MdSimCardDownload } from 'react-icons/md'
@@ -36,14 +36,35 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-x-2">
-                <Button className="rounded-full bg-foreground-50">
-                  <MdSimCardDownload />
-                  Resume
-                </Button>
-                <Button className="rounded-full bg-foreground-50">
-                  <FaGithub />
-                  Github
-                </Button>
+                <a
+                  href="/files/resume.pdf"
+                  download="Fernando_Hernandez_Full_Stack_Developer.pdf"
+                >
+                  <Button className="rounded-full bg-foreground-50">
+                    <MdSimCardDownload />
+                    Resume
+                  </Button>
+                </a>
+                <a
+                  href="https://github.com/osocaramelosofer/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button className="rounded-full bg-foreground-50">
+                    <FaGithub />
+                    Github
+                  </Button>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/fernando-hern%C3%A1ndez-8b30421b2/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button className="rounded-full bg-foreground-50">
+                    <FaLinkedin />
+                    LinkedIn
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
