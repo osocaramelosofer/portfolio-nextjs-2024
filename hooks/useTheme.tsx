@@ -12,8 +12,8 @@ export const useTheme = () => {
   useEffect(() => {
     const root = window.document.documentElement
     root.classList.remove(theme === 'dark' ? 'light' : 'dark')
-    root.classList.add(theme)
-    localStorage.setItem('theme', theme)
+    root.classList.add(theme ?? 'light')
+    localStorage.setItem('theme', theme ?? 'light')
   }, [theme])
 
   const toggleTheme = () => {
