@@ -24,6 +24,9 @@ const ThemeToggle = () => {
           <FaMoon className={className} />
         )
       }
+      classNames={{
+        wrapper: 'bg-foreground-50'
+      }}
     ></Switch>
   )
 }
