@@ -2,7 +2,7 @@ import ChatFour from '../components/chat-four';
 
 export default function PagePlanner() {
   return (
-    <div>
+    <div className="h-full w-full">
       <ChatFour />
     </div>
   );

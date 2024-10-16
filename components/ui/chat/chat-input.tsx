@@ -52,8 +52,8 @@ export function ChatgptInput({
   };
 
   return (
-    <form onSubmit={handleSubmit} ref={formRef}>
-      <div className="flex w-full items-center">
+    <form onSubmit={handleSubmit} ref={formRef} className="">
+      <div className="flex w-full">
         <div className="flex w-full flex-col gap-1.5 rounded-[26px] p-1.5 transition-colors bg-[#f4f4f4] dark:bg-token-main-surface-secondary">
           <div className="flex items-end gap-1.5 md:gap-2">
             <div>
@@ -106,7 +106,7 @@ export function ChatgptInput({
                 onKeyDown={handleKeyDown}
               />
             </div>
-            <button type="submit" className="px-2 bg-blue-500">
+            <button type="submit" className="px-2 ">
               Send
             </button>
           </div>

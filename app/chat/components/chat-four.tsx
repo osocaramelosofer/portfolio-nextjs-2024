@@ -33,24 +33,24 @@ export default function ChatFour() {
     ]);
   };
 
-  // const handleSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setInput('');
-  //   setConversation((currentConversation: ClientMessage[]) => [
-  //     ...currentConversation,
-  //     { id: generateId(), role: 'user', display: input },
-  //   ]);
+  const handleSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setInput('');
+    setConversation((currentConversation: ClientMessage[]) => [
+      ...currentConversation,
+      { id: generateId(), role: 'user', display: input },
+    ]);
 
-  //   const message = await submitUserMessage(input);
+    const message = await submitUserMessage(input);
 
-  //   setConversation((currentConversation: ClientMessage[]) => [
-  //     ...currentConversation,
-  //     message,
-  //   ]);
-  // };
+    setConversation((currentConversation: ClientMessage[]) => [
+      ...currentConversation,
+      message,
+    ]);
+  };
 
   return (
-    <section className="message-container flex flex-col gap-y-2 max-h-[80vh] bg-white">
+    <section className="h-full flex flex-col gap-y-2  ">
       <ChatContainer messages={conversation}>
         <ul className="flex flex-col list-none p-0 overflow-auto flex-1">
           {conversation.map((message: ClientMessage) => {
@@ -65,7 +65,7 @@ export default function ChatFour() {
       </ChatContainer>
 
       <ChatgptInput
-        handleSubmit={handleSubmit}
+        handleSubmit={handleSubmit2}
         input={input}
         setInput={setInput}
       />
