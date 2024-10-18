@@ -23,7 +23,7 @@ export function WeatherComponent() {
         </span>
       </div>
       <div className="flex flex-col items-center ">
-        {!weather?.temperature ? (
+        {weather === null ? (
           <Skeleton className="rounded-lg">
             <div className="h-24 w-40 rounded-lg bg-default-300"></div>
           </Skeleton>
