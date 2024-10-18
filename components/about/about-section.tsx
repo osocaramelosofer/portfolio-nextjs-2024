@@ -2,20 +2,20 @@ import styles from './styles.module.css'
 
 export function AboutSection() {
   return (
-    <section className="about py-20 bg-slate-100" id="about">
+    <section className="about bg-slate-100 py-20" id="about">
       <div className="mx-auto max-w-[61rem]">
         <div
-          className="about-content grid items-center justify-center
-                 grid-cols-1 md:grid-cols-2 gap-y-10 px-10"
+          className="about-content grid grid-cols-1 items-center
+                 justify-center gap-y-10 px-10 md:grid-cols-2"
         >
           <div className="img-side mx-auto">
             <img
               src="/images/profile-picture.webp"
               alt="profile picture"
-              className="h-[250px] w-[250px] rounded-large"
+              className="size-[250px] rounded-large"
             />
           </div>
-          <div className="h-full mx-auto text-center md:text-left max-w-[525px]">
+          <div className="mx-auto h-full max-w-[525px] text-center md:text-left">
             <h2 className={styles.aboutTitle}>About me</h2>
             <h3 className={styles.description}>
               A creative Full-Stack Developer based in México city📍

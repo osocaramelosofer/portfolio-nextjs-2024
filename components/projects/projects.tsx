@@ -13,10 +13,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto w-full grid justify-center px-16 pb-20 mt-28"
+      className="mx-auto mt-28 grid w-full justify-center px-16 pb-20"
     >
       {/* <SectionHeading>My projects</SectionHeading> */}
-      <h2 className="text-center font-semibold text-3xl mb-5">My Projects</h2>
+      <h2 className="mb-5 text-center text-3xl font-semibold">My Projects</h2>
 
       {projectsData.map((project, index) => (
         <Project key={index} {...project} />

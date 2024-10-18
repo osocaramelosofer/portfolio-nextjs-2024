@@ -9,28 +9,28 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="hero h-auto flex flex-col relative w-full
-  py-[4rem] md:py-0  pt-24 lg:pt-0 md:h-screen"
+      className="hero relative flex h-auto w-full flex-col
+  py-16 pt-24  md:h-screen md:py-0 lg:pt-0"
     >
       <Container>
         <div
-          className="content mt-2 md:mt-28 h-auto md:h-[40.6rem] text-center md:text-left
-      relative flex flex-col justify-center items-center gap-y-4"
+          className="content relative mt-2 flex h-auto flex-col items-center
+      justify-center gap-y-4 text-center md:mt-28 md:h-[40.6rem] md:text-left"
         >
-          <div className="hero-main relative tex-align md:tex-left flex flex-col-reverse items-center md:justify-center md:flex-row gap-x-[3rem] md:gap-x-[10rem] sm:h-auto">
-            <div className="hero-text flex flex-col gap-2 relative max-w-[400px]">
-              <div className="flex w-full relative">
+          <div className="hero-main tex-align md:tex-left relative flex flex-col-reverse items-center gap-x-12 sm:h-auto md:flex-row md:justify-center md:gap-x-40">
+            <div className="hero-text relative flex max-w-[400px] flex-col gap-2">
+              <div className="relative flex w-full">
                 <h1
                   className={`${outfit.className} ${styles.title}
-                 text-zinc-700 text-4xl md:text-6xl font-bold leading-tight my-8`}
+                 my-8 text-4xl font-bold leading-tight text-zinc-700 md:text-6xl`}
                 >
                   Full-Stack Developer
                 </h1>
                 <img
-                  className="w-[50px] h-[50px] absolute
-                  -right-3 top-16
-                   md:top-0 md:right-8
-                   lg:top-6 lg:right-8"
+                  className="absolute -right-3 top-16
+                  size-[50px] md:right-8
+                   md:top-0 lg:right-8
+                   lg:top-6"
                   src="/images/waving.webp"
                   alt="Picture of the author"
                 />
@@ -39,10 +39,10 @@ export default function HeroSection() {
                 Hi, I&apos;m Fernando Hernandez. A passionate Full-Stack
                 Developer based in Mexico city. 📍
               </p>
-              <span className="flex gap-3 my-10 justify-center md:justify-start">
+              <span className="my-10 flex justify-center gap-3 md:justify-start">
                 <a
                   href="https://github.com/osocaramelosofer"
-                  className="cursor-pointer hover:text-cyan-400 text-5xl"
+                  className="cursor-pointer text-5xl hover:text-cyan-400"
                   aria-label="linkedin"
                 >
                   <svg
@@ -62,7 +62,7 @@ export default function HeroSection() {
                 </a>
                 <a
                   href="https://www.linkedin.com/in/fernando-hernández-8b30421b2/"
-                  className="cursor-pointer hover:text-cyan-500 text-5xl"
+                  className="cursor-pointer text-5xl hover:text-cyan-500"
                   aria-label="github"
                 >
                   <svg

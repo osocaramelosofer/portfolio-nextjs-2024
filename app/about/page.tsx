@@ -19,7 +19,7 @@ export default function AboutPage() {
     <header className={styles.gridContainer}>
       <div className={styles.squareOne}></div>
       <div className={` ${styles.mainContent}`}>
-        <div className="lottie-container max-w-full h-auto">
+        <div className="lottie-container h-auto max-w-full">
           <Lottie options={lottieOptions} height={200} width={200} />
         </div>
       </div>

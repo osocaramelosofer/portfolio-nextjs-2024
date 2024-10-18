@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // components/ThemeToggle.js
 import { useTheme } from '@/hooks/useTheme'

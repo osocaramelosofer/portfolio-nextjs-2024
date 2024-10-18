@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
 import { Providers } from './providers'
 import { Rubik_Mono_One, Lexend } from '@next/font/google'
+import { Navbar } from '@/components/navbar'
 
 export const metadata: Metadata = {
   title: 'osocarameloso',
@@ -35,7 +36,8 @@ export default function RootLayout({
       <head>
         <meta name="view-transition" content="same-origin" />
       </head>
-      <body className="">
+      <body>
+        <Navbar />
         <Providers>{children}</Providers>
       </body>
     </html>

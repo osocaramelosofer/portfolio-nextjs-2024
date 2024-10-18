@@ -2,33 +2,33 @@ export function Dots() {
   return (
     <>
       <div
-        className="bg-custom-gradient absolute rounded-full blur-[5rem] dark:blur-[6rem]
-      top-[0rem] -z-10 left-[0rem]
-      h-[12.25rem] w-[12.25rem] sm:w-[10rem] sm:h-[10rem] "
+        className="absolute left-0 top-0 -z-10 size-[12.25rem]
+      rounded-full bg-custom-gradient blur-[5rem]
+      dark:blur-[6rem] sm:size-40 "
       />
       <div
-        className="bg-reverse-custom-gradient absolute rounded-full blur-[5rem] dark:blur-[6rem]
-      top-[20rem] -z-10 left-[0rem]
-      h-[12.25rem] w-[12.25rem] sm:w-[10rem] sm:h-[10rem] "
+        className="absolute left-0 top-80 -z-10 size-[12.25rem]
+      rounded-full bg-reverse-custom-gradient blur-[5rem]
+      dark:blur-[6rem] sm:size-40 "
       />
       <div
-        className="bg-custom-gradient absolute rounded-full blur-[5.5rem] dark:blur-[6rem]
-      top-[0rem] -z-10 right-[0rem]
-      h-[12.25rem] w-[12.25rem] sm:w-[14.75rem] sm:h-[14.75rem] "
-      />
-
-      <div
-        className="bg-[#F5E3FD] absolute -z-10 rounded-full
-       h-[8rem] w-[8rem]
-       top-[28rem] -left-[2rem]
-       sm:w-[16.75rem] sm:h-[16.75rem]
-       blur-[5rem] dark:blur-[7rem] dark:bg-[#CBD7FF]"
+        className="absolute right-0 top-0 -z-10 size-[12.25rem]
+      rounded-full bg-custom-gradient blur-[5.5rem]
+      dark:blur-[6rem] sm:size-[14.75rem] "
       />
 
       <div
-        className="bg-gradient-to-r from-sky-500 to-indigo-500 absolute rounded-full -z-10 dark:blur-[6rem]
-      top-[60rem] -left-[8rem] blur-[7rem]
-      h-[10.25rem] w-[10.25rem] sm:w-[12.75rem] sm:h-[12.75rem] dark:bg-[#fdfde3]"
+        className="absolute -left-8 top-[28rem] -z-10
+       size-32 rounded-full
+       bg-[#F5E3FD] blur-[5rem]
+       dark:bg-[#CBD7FF] dark:blur-[7rem]
+       sm:size-[16.75rem]"
+      />
+
+      <div
+        className="absolute -left-32 top-[60rem] -z-10 size-[10.25rem] rounded-full bg-gradient-to-r
+      from-sky-500 to-indigo-500 blur-[7rem]
+      dark:bg-[#fdfde3] dark:blur-[6rem] sm:size-[12.75rem]"
       />
     </>
   )
