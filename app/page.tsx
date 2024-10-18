@@ -8,7 +8,12 @@ import { IoLocationSharp } from 'react-icons/io5'
 import { MdSimCardDownload } from 'react-icons/md'
 import styles from '../components/hero/styles.module.css'
 import { GrTools } from 'react-icons/gr'
-
+// TODOS:
+// ADD A SHORTCUT BAR LIKE MIDUDEV WHEN HE MADE HIS REUSME
+// NAV BAR
+// ADD BIG FOOT AND YETY TO THE HERO
+// CONFIGURE THE COLOR PALETTE
+// CHANGE PICTURE IMAGE
 export default function Home() {
   return (
     <main>

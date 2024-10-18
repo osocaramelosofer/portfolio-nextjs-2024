@@ -26,18 +26,18 @@ export function Stack() {
     }
   ]
   return (
-    <div className="stack items-center bottom-0 flex flex-col static text-lg lg:flex-row md:left-80 ">
-      <p className="font-semibold mb-5 md:mb-0 border-b-2 md:border-b-0 md:border-r-2 border-stone-700/60 md:mr-12 md:pr-4 ">
+    <div className="stack static bottom-0 flex flex-col items-center text-lg md:left-80 lg:flex-row ">
+      <p className="mb-5 border-b-2 border-stone-700/60 font-semibold md:mb-0 md:mr-12 md:border-b-0 md:border-r-2 md:pr-4 ">
         Tech Stack
       </p>
       <div className="logos">
-        <ul className="list-none flex flex-wrap justify-center md:justify-start gap-7 ">
+        <ul className="flex list-none flex-wrap justify-center gap-7 md:justify-start ">
           {icons.map((icon) => (
             <li
-              className="cursor-pointer hover:-translate-y-3 transition-all duration-1000"
+              className="cursor-pointer transition-all duration-1000 hover:-translate-y-3"
               key={icon.src}
             >
-              <img className="w-24 h-12" src={icon.src} alt="skill-icon" />
+              <img className="h-12 w-24" src={icon.src} alt="skill-icon" />
             </li>
           ))}
         </ul>
