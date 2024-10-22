@@ -29,7 +29,7 @@ export function HeroSection() {
                 applications
               </p>
             </div>
-            <div className="flex gap-x-2">
+            <div className="mt-2 flex flex-wrap gap-2">
               <a
                 href="/files/resume.pdf"
                 download="Fernando_Hernandez_Full_Stack_Developer.pdf"

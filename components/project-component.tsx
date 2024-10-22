@@ -36,7 +36,7 @@ export function ProjectComponent() {
         </div>
       </div>
 
-      <div className="max-w-[600px] overflow-hidden">
+      <div className="max-w-[500px] overflow-hidden">
         <img
           className="h-ful w-full overflow-hidden rounded-br-xl rounded-tl-xl object-cover"
           src="/images/ferleth_home.webp"

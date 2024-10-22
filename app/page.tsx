@@ -65,7 +65,7 @@ export default function Home() {
     }
   ]
   return (
-    <main className="flex w-full flex-col items-center">
+    <main className="mx-10 max-w-max md:mx-auto">
       <HeroSection />
       <section className="">
         <div className="flex max-w-max flex-wrap gap-4">
