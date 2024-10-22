@@ -1,6 +1,6 @@
 import ThemeToggle from '@/components/ui/theme-toogle'
 import { Button } from '@nextui-org/react'
-import { FaGithub, FaLinkedin, FaUserAstronaut } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaUser } from 'react-icons/fa'
 import { IoIosColorPalette } from 'react-icons/io'
 import { MdSimCardDownload } from 'react-icons/md'
 import styles from '@/components/hero/styles.module.css'
@@ -8,11 +8,11 @@ import { WeatherComponent } from '../weather-component'
 
 export function HeroSection() {
   return (
-    <section className="mx-auto w-max">
-      <div className="flex size-max flex-col items-stretch gap-4 rounded-lg py-4 text-foreground  md:flex-row">
-        <div className="hero items- flex flex-col justify-between rounded-lg bg-foreground-200 p-4">
+    <section className="">
+      <div className="flex flex-col gap-4 rounded-lg py-4 text-foreground md:flex-row">
+        <div className="hero flex flex-col justify-between rounded-lg bg-foreground-100 p-4">
           <div className="flex items-center gap-x-2">
-            <FaUserAstronaut className="rounded-lg bg-black p-2 text-4xl text-white " />
+            <FaUser className="rounded-lg bg-black p-2 text-4xl text-white " />
             <span className="font-rubik">about me</span>
           </div>
 
@@ -63,8 +63,8 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="contenedor-2 flex h-full flex-col gap-4 overflow-hidden  ">
-          <div className="flex flex-col gap-y-10 rounded-lg bg-foreground-200 p-4 ">
+        <div className="flex h-full flex-col gap-4 overflow-hidden  ">
+          <div className="flex flex-col gap-y-10 rounded-lg bg-foreground-100 p-4 ">
             <div className="flex items-center gap-x-2 ">
               <IoIosColorPalette className="rounded-lg bg-black p-2 text-4xl text-white" />
               <span className="font-lexend text-lg font-semibold capitalize">
@@ -77,7 +77,7 @@ export function HeroSection() {
               <ThemeToggle />
             </div>
           </div>
-          <div className="rounded-lg bg-foreground-200 p-4">
+          <div className="rounded-lg bg-foreground-100 p-4">
             <WeatherComponent />
           </div>
         </div>

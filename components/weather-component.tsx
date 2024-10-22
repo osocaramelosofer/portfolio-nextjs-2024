@@ -9,7 +9,6 @@ export function WeatherComponent() {
   useEffect(() => {
     const fetchWeather = async () => {
       const weather = await weatherAPI.getCurrentWeather()
-      console.log(weather)
       setWeather(weather)
     }
     fetchWeather()
@@ -22,29 +21,30 @@ export function WeatherComponent() {
           My Location Weather
         </span>
       </div>
-      <div className="flex flex-col items-center ">
+      <div className="flex flex-col items-center gap-2">
         {weather === null ? (
           <Skeleton className="rounded-lg">
             <div className="h-24 w-40 rounded-lg bg-default-300"></div>
           </Skeleton>
         ) : (
           <span className="font-lexed text-6xl font-semibold">
-            {weather.temperature} {weather.temperatureUnit}
+            {Math.round(weather.temperature)} {weather.temperatureUnit}
           </span>
         )}
 
-        {/* <span>Tlaxcala Mexico</span> */}
-        {weather !== null && <span>{weather.timezone}</span>}
-        <div className="flex gap-x-4 rounded-full bg-white px-4 py-1 text-black">
+        <span className="font-lexend">Tlaxcala Mexico</span>
+        {/* {weather !== null && <span>{weather.timezone}</span>} */}
+        <div className="flex gap-x-4 rounded-full bg-white px-4 py-1 font-lexend text-black">
           <div className="flex flex-col items-center justify-center">
             <span className="">
-              {weather?.apparentTemperature} {weather?.apparentTemperatureUnit}
+              {Math.round(weather?.apparentTemperature)}
+              {weather?.apparentTemperatureUnit}
             </span>
             <span>feels like</span>
           </div>
           <div className="flex flex-col items-center justify-center">
             <span>
-              {weather?.windSpeed} {weather?.windUnit}
+              {Math.round(weather?.windSpeed)} {weather?.windUnit}
             </span>
             <span>wind</span>
           </div>
