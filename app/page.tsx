@@ -2,7 +2,8 @@
 import { ProjectComponent } from '@/components/project-component'
 import { HeroSection } from '@/components/sections/hero-section'
 import { FaMagic } from 'react-icons/fa'
-import { GrTools } from 'react-icons/gr'
+import '@/styles/projects.css'
+
 // TODOS:
 // ADD A SHORTCUT BAR LIKE MIDUDEV WHEN HE MADE HIS REUSME
 // NAV BAR
@@ -67,8 +68,8 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <section className="">
-        <div className="flex max-w-max flex-wrap gap-4">
+      <section className="mt-10">
+        <div className="project-grid">
           <ProjectComponent />
           <ProjectComponent />
         </div>
