@@ -65,7 +65,7 @@ export default function Home() {
     }
   ]
   return (
-    <main className="mx-10 max-w-max md:mx-auto">
+    <main className="">
       <HeroSection />
       <section className="">
         <div className="flex max-w-max flex-wrap gap-4">
@@ -97,12 +97,12 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="my-20">
+      {/* <section className="my-20">
         <div className=" flex items-center gap-x-2 text-3xl font-bold">
           <h3>Work in progress ...</h3>
           <GrTools size={40} className="rounded-lg bg-black p-1 text-white" />
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }
