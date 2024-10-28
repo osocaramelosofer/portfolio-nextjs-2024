@@ -1,0 +1,21 @@
+.project-grid {
+  display: grid;
+  max-width: 1088px;
+  margin: 10px auto 0 auto;
+  grid-template-columns: 1fr;
+
+  gap: 10px;
+}
+.skills-grid {
+  display: grid;
+  max-width: 1088px;
+  margin: 10px auto 0 auto;
+}
+@media only screen and (min-width: 600px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills-grid {
+    grid-template-columns: 30% 70%;
+  }
+}
