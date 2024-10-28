@@ -70,8 +70,18 @@ export default function Home() {
       <HeroSection />
       <section className="mt-10">
         <div className="project-grid">
-          <ProjectComponent />
-          <ProjectComponent />
+          <ProjectComponent
+            imageName="ferleth_home.webp"
+            project="Ferleth Landing Page"
+            description="Landing page for clothes and fabric stuff made with nextjs "
+            linkSite="https://ferleth-landing-page.vercel.app/"
+          />
+          <ProjectComponent
+            imageName="babelon-home.webp"
+            project="Babelon"
+            description="Web application with AI integrated that suggests places to visit"
+            linkSite="https://babelontrip.com/"
+          />
         </div>
       </section>
       <section className="mt-10">
