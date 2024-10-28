@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <section className="mt-10">
+      <section className="">
         <div className="project-grid">
           <ProjectComponent
             imageName="ferleth_home.webp"
@@ -84,8 +84,8 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="mt-10">
-        <div className="flex flex-col items-start gap-x-10 gap-y-5 rounded-xl border-1 border-foreground-300 p-4 md:flex-row md:items-center">
+      <section className="mb-10 ">
+        <div className="skills-grid rounded-lg bg-foreground-100 p-4">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <FaMagic className="rounded-lg bg-black p-1 text-3xl text-white" />
