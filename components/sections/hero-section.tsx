@@ -5,12 +5,12 @@ import { IoIosColorPalette } from 'react-icons/io'
 import { MdSimCardDownload } from 'react-icons/md'
 import styles from '@/components/hero/styles.module.css'
 import { WeatherComponent } from '../weather-component'
-
+import './hero.css'
 export function HeroSection() {
   return (
     <section className="">
-      <div className="flex flex-col gap-4 rounded-lg py-4 text-foreground md:flex-row">
-        <div className="hero flex flex-col justify-between rounded-lg bg-foreground-100 p-4">
+      <div className="hero-grid">
+        <div className="grid-area-about hero flex flex-col justify-between rounded-lg bg-foreground-100 p-4">
           <div className="flex items-center gap-x-2">
             <FaUser className="rounded-lg bg-black p-2 text-4xl text-white " />
             <span className="font-rubik">about me</span>
@@ -62,24 +62,21 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-
-        <div className="flex h-full flex-col gap-4 overflow-hidden  ">
-          <div className="flex flex-col gap-y-10 rounded-lg bg-foreground-100 p-4 ">
-            <div className="flex items-center gap-x-2 ">
-              <IoIosColorPalette className="rounded-lg bg-black p-2 text-4xl text-white" />
-              <span className="font-lexend text-lg font-semibold capitalize">
-                theme
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-y-2">
-              <span className="font-lexend">Choose a theme</span>
-              <ThemeToggle />
-            </div>
+        <div className="grid-area-location flex flex-col gap-y-10 rounded-lg bg-foreground-100 p-4 ">
+          <div className="flex items-center gap-x-2 ">
+            <IoIosColorPalette className="rounded-lg bg-black p-2 text-4xl text-white" />
+            <span className="font-lexend text-lg font-semibold capitalize">
+              theme
+            </span>
           </div>
-          <div className="rounded-lg bg-foreground-100 p-4">
-            <WeatherComponent />
+
+          <div className="flex flex-col items-center justify-center gap-y-2">
+            <span className="font-lexend">Choose a theme</span>
+            <ThemeToggle />
           </div>
+        </div>
+        <div className="grid-area-theme rounded-lg bg-foreground-100 p-4">
+          <WeatherComponent />
         </div>
       </div>
     </section>
