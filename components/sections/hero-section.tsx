@@ -8,7 +8,7 @@ import { WeatherComponent } from '../weather-component'
 import './hero.css'
 export function HeroSection() {
   return (
-    <section className="">
+    <section className="mb-3">
       <div className="hero-grid">
         <div className="grid-area-about hero flex flex-col justify-between rounded-lg bg-foreground-100 p-4">
           <div className="flex items-center gap-x-2">

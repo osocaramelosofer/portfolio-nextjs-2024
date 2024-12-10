@@ -66,9 +66,9 @@ export default function Home() {
     }
   ]
   return (
-    <main className="">
+    <main className="px-3">
       <HeroSection />
-      <section className="">
+      <section className="mb-3">
         <div className="project-grid">
           <ProjectComponent
             imageName="ferleth_home.webp"
@@ -84,8 +84,8 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="mb-10 ">
-        <div className="skills-grid rounded-lg bg-foreground-100 p-4">
+      <section className="">
+        <div className="skills-grid rounded-lg bg-foreground-100 ">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <FaMagic className="rounded-lg bg-black p-1 text-3xl text-white" />
@@ -108,12 +108,6 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      {/* <section className="my-20">
-        <div className=" flex items-center gap-x-2 text-3xl font-bold">
-          <h3>Work in progress ...</h3>
-          <GrTools size={40} className="rounded-lg bg-black p-1 text-white" />
-        </div>
-      </section> */}
     </main>
   )
 }

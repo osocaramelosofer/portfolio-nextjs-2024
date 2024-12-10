@@ -55,7 +55,7 @@ export function ProjectComponent({
           rel="noreferrer"
         >
           <img
-            className="h-ful w-full overflow-hidden rounded-br-xl rounded-tl-xl object-cover"
+            className="h-ful w-full overflow-hidden rounded-br-xl rounded-tl-xl object-contain"
             src={`/images/${imageName}`}
             alt="ferleth page"
           />

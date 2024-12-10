@@ -4,7 +4,7 @@
   margin: 10px auto 0 auto;
   grid-template-columns: 1fr;
 
-  gap: 10px;
+  gap: 12px;
 }
 .skills-grid {
   display: grid;

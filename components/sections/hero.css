@@ -7,7 +7,7 @@
     'about'
     'theme'
     'location';
-  gap: 10px;
+  gap: 12px;
 }
 
 .grid-area-about {
