@@ -1,0 +1,26 @@
+import { type Item } from './types'
+
+export default {
+  list: async (): Promise<Item[]> =>
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        resolve([
+          {
+            id: 1,
+            text: 'Some thing to buy',
+            completed: false
+          },
+          {
+            id: 2,
+            text: 'Some other thing to buy',
+            completed: true
+          },
+          {
+            id: 3,
+            text: 'Some last to buy',
+            completed: false
+          }
+        ])
+      }, 1000)
+    )
+}

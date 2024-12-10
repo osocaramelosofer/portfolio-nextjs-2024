@@ -1,5 +1,13 @@
+import { FaHome, FaReact } from 'react-icons/fa'
 import { Wrapper } from './wrapper'
+import Link from 'next/link'
+import { LiaLinkSolid } from 'react-icons/lia'
 
+const NAVBAR_ITEMS = [
+  { key: '', name: 'home', icon: <FaHome /> },
+  { key: 'react', name: 'react', icon: <FaReact /> },
+  { key: '', name: 'cool links', icon: <LiaLinkSolid /> }
+]
 export function Navbar() {
   return (
     <nav className="bg-foreground-100 py-2">
@@ -15,15 +23,21 @@ export function Navbar() {
             </div>
           </div>
           <ul className="flex gap-x-4 font-lexend font-normal capitalize">
-            <li className="rounded-full px-2 py-1 hover:cursor-pointer  hover:bg-amber-400">
-              home
-            </li>
-            <li className="rounded-full px-2 py-1 hover:cursor-pointer  hover:bg-amber-400">
-              projects
-            </li>
-            <li className="rounded-full px-2 py-1 hover:cursor-pointer  hover:bg-amber-400">
-              skills
-            </li>
+            {NAVBAR_ITEMS.map(({ key, name, icon }) => {
+              return (
+                <li
+                  key={name}
+                  className="rounded-full px-2 py-1 hover:cursor-pointer hover:text-sky-500 "
+                >
+                  <Link href={`/${key}`}>
+                    <div className="flex items-center gap-x-1 ">
+                      {icon}
+                      <span>{name}</span>
+                    </div>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </Wrapper>
