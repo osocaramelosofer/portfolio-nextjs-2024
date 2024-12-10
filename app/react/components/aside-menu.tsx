@@ -15,7 +15,7 @@ const EXERCISES: MenuItem[] = [
 
 export default function AsideMenu() {
   return (
-    <aside className="mr-5 bg-foreground-50">
+    <aside className="h-full bg-foreground-50 ">
       <ul className="flex flex-col px-2">
         {EXERCISES.map(({ key, name }, idx) => {
           const isActive = useActivePath({

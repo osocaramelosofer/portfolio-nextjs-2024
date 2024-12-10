@@ -4,9 +4,9 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function ReactLayout({ children }: LayoutProps) {
   return (
-    <div className="grid grid-cols-react-layout">
+    <div className="grid h-full grid-cols-react-layout overflow-y-hidden">
       <AsideMenu />
       <main>{children}</main>
     </div>

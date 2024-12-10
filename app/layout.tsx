@@ -36,7 +36,7 @@ export default function RootLayout({
       <head>
         <meta name="view-transition" content="same-origin" />
       </head>
-      <body>
+      <body className="h-full">
         <Navbar />
         <Providers>{children}</Providers>
       </body>
