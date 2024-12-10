@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { kenia, outfit } from './fonts'
 import { Providers } from './providers'
-import { Rubik_Mono_One, Lexend } from '@next/font/google'
+import { Rubik_Mono_One, Lexend } from 'next/font/google'
 import { Navbar } from '@/components/navbar'
 
 export const metadata: Metadata = {
