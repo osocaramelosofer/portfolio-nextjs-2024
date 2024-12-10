@@ -2,13 +2,11 @@
 import { FaHome, FaReact } from 'react-icons/fa'
 import { Wrapper } from './wrapper'
 import Link from 'next/link'
-import { LiaLinkSolid } from 'react-icons/lia'
 import { useActivePath } from '@/hooks/useActivePath'
 
 const NAVBAR_ITEMS = [
   { key: '', name: 'home', icon: <FaHome /> },
-  { key: 'react', name: 'react', icon: <FaReact /> },
-  { key: 'links', name: 'cool links', icon: <LiaLinkSolid /> }
+  { key: 'react', name: 'react', icon: <FaReact /> }
 ]
 export function Navbar() {
   return (
