@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="grid h-screen grid-cols-react-layout ">
+    <div className="grid grid-cols-react-layout">
       <AsideMenu />
       <main>{children}</main>
     </div>

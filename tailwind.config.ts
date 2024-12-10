@@ -24,7 +24,7 @@ const config: Config = {
           'linear-gradient(0deg, rgba(15,3,221,.3) 0%, rgba(77,77,255,.3) 35%, rgba(0,212,255,.3) 100%)'
       },
       gridTemplateColumns: {
-        'react-layout': '.2fr .8fr'
+        'react-layout': '.17fr .8fr'
       }
     }
   },

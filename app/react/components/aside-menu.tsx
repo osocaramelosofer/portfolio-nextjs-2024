@@ -17,15 +17,18 @@ export default function AsideMenu() {
   return (
     <aside className="mr-5 bg-foreground-50">
       <ul className="flex flex-col px-2">
-        {EXERCISES.map(({ key, name }) => {
+        {EXERCISES.map(({ key, name }, idx) => {
           const isActive = useActivePath(key)
           return (
-            <li
-              key={key}
-              className={`${isActive ? 'text-sky-500' : ''} text-lg`}
-            >
-              <Link href={`/react/guides/${key}`}>{name}</Link>
-            </li>
+            <>
+              {idx > 0 && <hr className="border-gray-400 " />}
+              <li
+                key={key}
+                className={`${isActive ? 'text-sky-400' : ''} text-lg`}
+              >
+                <Link href={`/react/guides/${key}`}>{name}</Link>
+              </li>
+            </>
           )
         })}
       </ul>
