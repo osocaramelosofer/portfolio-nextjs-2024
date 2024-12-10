@@ -1,10 +1,14 @@
 import { usePathname } from 'next/navigation'
 
-const BASE_PATH = '/react/guides'
-
-export const useActivePath = (currentPage: string): boolean => {
+interface UseActivePathProps {
+  currentPage: string
+  basePath: string
+}
+export const useActivePath = ({
+  currentPage,
+  basePath
+}: UseActivePathProps): boolean => {
   const pathname = usePathname()
-  const expectedPath = `${BASE_PATH}/${currentPage}`
-
+  const expectedPath = `${basePath}/${currentPage}`
   return pathname === expectedPath
 }
