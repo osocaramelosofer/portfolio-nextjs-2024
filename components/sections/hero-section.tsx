@@ -3,7 +3,8 @@ import { Button } from '@nextui-org/react'
 import { FaGithub, FaLinkedin, FaUser } from 'react-icons/fa'
 import { IoIosColorPalette } from 'react-icons/io'
 import { MdSimCardDownload } from 'react-icons/md'
-import styles from '@/components/hero/styles.module.css'
+import styles from '@/styles/avatar.module.css'
+
 import { WeatherComponent } from '../weather-component'
 import './hero.css'
 export function HeroSection() {
