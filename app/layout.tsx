@@ -1,27 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { kenia, outfit } from './fonts'
+import { kenia, outfit, rubik, bungeeSpice, lexend } from './fonts'
 import { Providers } from './providers'
-import { Rubik_Mono_One, Lexend } from 'next/font/google'
 import { Navbar } from '@/components/navbar'
 
 export const metadata: Metadata = {
   title: 'osocarameloso',
   description: 'Web developer'
 }
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '400',
-  variable: '--font-lexend'
-})
-
-const rubik = Rubik_Mono_One({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '400',
-  variable: '--font-rubik'
-})
 
 export default function RootLayout({
   children
@@ -31,7 +17,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${outfit.variable} ${kenia.variable} ${rubik.variable} ${lexend.variable}`}
+      className={`dark 
+        ${outfit.variable} ${kenia.variable} ${rubik.variable}
+        ${lexend.variable} ${bungeeSpice.variable}`}
     >
       <head>
         <meta name="view-transition" content="same-origin" />
