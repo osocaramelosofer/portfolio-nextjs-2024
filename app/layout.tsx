@@ -1,6 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { kenia, outfit, rubik, bungeeSpice, lexend } from './fonts'
+import {
+  kenia,
+  outfit,
+  rubik,
+  bungeeSpice,
+  lexend,
+  nabla,
+  geistMono
+} from './fonts'
 import { Providers } from './providers'
 import { Navbar } from '@/components/navbar'
 
@@ -19,7 +27,8 @@ export default function RootLayout({
       lang="en"
       className={`dark 
         ${outfit.variable} ${kenia.variable} ${rubik.variable}
-        ${lexend.variable} ${bungeeSpice.variable}`}
+        ${lexend.variable} ${bungeeSpice.variable} ${nabla.variable}
+        ${geistMono.variable}`}
     >
       <head>
         <meta name="view-transition" content="same-origin" />

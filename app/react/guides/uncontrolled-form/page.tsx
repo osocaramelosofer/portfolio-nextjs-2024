@@ -54,7 +54,7 @@ export default function UncontrolledFormPage() {
 
   return (
     <div>
-      <TextScrambleBasic className="text-3xl">
+      <TextScrambleBasic className="font-mono text-3xl uppercase">
         Uncontrolled Form
       </TextScrambleBasic>
 

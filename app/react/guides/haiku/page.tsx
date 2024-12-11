@@ -119,7 +119,9 @@ hr {
 export default function HaikuPage() {
   return (
     <div className="px-2">
-      <TextScrambleBasic className="text-3xl">haiku</TextScrambleBasic>
+      <TextScrambleBasic className="font-mono text-3xl uppercase">
+        haiku
+      </TextScrambleBasic>
       <CustomSandpack files={HAIKU_FILES} />
     </div>
   )

@@ -10,8 +10,6 @@ export function TextScrambleBasic({
   className = ''
 }: TextScrambleBasicProps) {
   return (
-    <TextScramble className={`font-mono uppercase ${className}`.trim()}>
-      {children}
-    </TextScramble>
+    <TextScramble className={`${className}`.trim()}>{children}</TextScramble>
   )
 }

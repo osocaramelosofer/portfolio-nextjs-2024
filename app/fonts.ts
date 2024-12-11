@@ -4,7 +4,9 @@ import {
   Outfit,
   Rubik_Mono_One,
   Lexend,
-  Bungee_Spice
+  Bungee_Spice,
+  Nabla,
+  Geist_Mono
 } from 'next/font/google'
 
 export const inter = Inter({ subsets: ['latin'] })
@@ -39,4 +41,16 @@ export const rubik = Rubik_Mono_One({
   display: 'swap',
   weight: '400',
   variable: '--font-rubik'
+})
+export const nabla = Nabla({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+  variable: '--font-nabla'
+})
+export const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500'],
+  variable: '--font-geistMono'
 })

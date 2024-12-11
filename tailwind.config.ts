@@ -16,7 +16,9 @@ const config: Config = {
         outfit: ['var(--font-outfit)'],
         rubik: ['var(--font-rubik)'],
         lexend: ['var(--font-lexend)'],
-        bungee: ['var(--font-bungee)']
+        bungee: ['var(--font-bungee)'],
+        nabla: ['var(--font-nabla)'],
+        geist: ['var(--font-geistMono)']
       },
       backgroundImage: {
         'custom-gradient':
