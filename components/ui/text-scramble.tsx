@@ -74,7 +74,7 @@ export function TextScramble({
   useEffect(() => {
     if (!trigger) return
 
-    scramble()
+    void scramble()
   }, [trigger])
 
   return (
