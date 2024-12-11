@@ -31,7 +31,7 @@ export function Navbar() {
               return (
                 <li
                   key={name}
-                  className="rounded-full px-2 py-1 hover:cursor-pointer hover:text-sky-500 "
+                  className="rounded-full px-2 py-1 hover:cursor-pointer"
                 >
                   <Link href={`/${key}`}>
                     <div
