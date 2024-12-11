@@ -1,6 +1,7 @@
 'use client'
 import { type SandpackFiles } from '@codesandbox/sandpack-react'
 import CustomSandpack from '../../custom-sandpack'
+import { TextScrambleBasic } from '@/components/motion-ui/text-scramble-basic'
 
 const HAIKU_FILES: SandpackFiles = {
   '/App.js': {
@@ -45,7 +46,7 @@ export default function Poem() {
     </article>
   );
 }`,
-    readOnly: true, // Set as non-editable, defaults to `false`
+    readOnly: false, // Set as non-editable, defaults to `false`
     active: true, // Set as main file, defaults to `false`
     hidden: false // Tab visibility, defaults to `false`
   },
@@ -111,13 +112,14 @@ hr {
   border: 1px dashed #45c3d8;
 }
 `,
-    readOnly: true
+    readOnly: true,
+    hidden: false
   }
 }
-export default function ControlledFormPage() {
+export default function HaikuPage() {
   return (
-    <div>
-      <h1 className="text-2xl">haiku</h1>
+    <div className="px-2">
+      <TextScrambleBasic className="text-3xl">haiku</TextScrambleBasic>
       <CustomSandpack files={HAIKU_FILES} />
     </div>
   )
