@@ -1,4 +1,5 @@
 import { TextScrambleBasic } from '@/components/motion-primitives/text-scramble-basic'
+import { TextScrambleCustomCharacterDuration } from '@/components/motion-primitives/text-scramble-duration'
 
 export default function ReactPage() {
   return (
@@ -10,10 +11,10 @@ export default function ReactPage() {
       </h1>
 
       <article className="font-geist text-lg">
-        <p>
+        <TextScrambleCustomCharacterDuration className="font-geist">
           These are react helpful exercises I have found in my journey as a
           frontend developer.
-        </p>
+        </TextScrambleCustomCharacterDuration>
       </article>
     </div>
   )
