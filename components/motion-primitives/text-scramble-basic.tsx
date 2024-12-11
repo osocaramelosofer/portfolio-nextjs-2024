@@ -1,4 +1,4 @@
-import { TextScramble } from '@/components/ui/text-scramble'
+import { TextScramble } from '@/components/motion-primitives/core/text-scramble'
 
 interface TextScrambleBasicProps {
   children: string

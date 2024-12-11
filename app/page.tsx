@@ -15,6 +15,7 @@ import '@/styles/projects.css'
 // FIX THE DARK THEME WHEN RELOAD THE PAGE
 // ADD SOME MIDUDEV PROJECTS https://www.javascript100.dev/ (COOL BE COULD ADD AN CHAT AI TO YOUR PORTFOLIO WHERE ANSWERS QUESTIONS ABOUT YOU)
 // ADD SOME PROJECTS WITH AI OR DATA SCIENCE OR LLM
+// Typography: Add a console/code typography to react guides home page to give it a look and feel more attractive
 export default function Home() {
   const icons = [
     {

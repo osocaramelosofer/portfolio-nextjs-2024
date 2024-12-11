@@ -10,9 +10,6 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    // <Button onPress={toggleTheme}>
-    //   {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-    // </Button>
     <Switch
       onValueChange={toggleTheme}
       defaultSelected

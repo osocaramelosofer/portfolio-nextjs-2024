@@ -1,4 +1,4 @@
-import { TextScrambleBasic } from '@/components/motion-ui/text-scramble-basic'
+import { TextScrambleBasic } from '@/components/motion-primitives/text-scramble-basic'
 
 export default function ReactPage() {
   return (
