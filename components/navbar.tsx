@@ -22,7 +22,7 @@ export function Navbar() {
               />
             </div>
           </div>
-          <ul className="flex gap-x-4 font-geist font-normal capitalize">
+          <ul className="flex gap-x-4 font-geist font-semibold capitalize">
             {NAVBAR_ITEMS.map(({ key, name, icon }) => {
               const isActive = useActivePath({
                 currentPage: key,

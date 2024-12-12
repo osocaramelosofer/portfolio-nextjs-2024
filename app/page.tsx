@@ -5,17 +5,16 @@ import { FaMagic } from 'react-icons/fa'
 import '@/styles/projects.css'
 
 // TODOS:
-// ADD A SHORTCUT BAR LIKE MIDUDEV WHEN HE MADE HIS REUSME
 // WORK ON A RESPONSIVE NAV BAR(CHECK SHADCDN OR NEXTUI NAVBAR COMPONENT)
-// ADD BIG FOOT AND YETY TO THE HERO
-// CONFIGURE THE COLOR PALETTE
-// CHANGE PICTURE IMAGE
-// WORK ON THE REACT GUIDE HOME PAGE(ADD SOME TEXT EFFECTS FROM PRIMITIVES MOTION UI)
 // WORK ON REACT GUIDES' ASIDE MENU (CHECK SHADCDN NAVBAR COMPONENT)
-// FIX THE DARK THEME WHEN RELOAD THE PAGE
+// ADD some images to improve the look and feel of the hero
+// CHANGE PICTURE IMAGE
+// Add a Tooltip to each logo skills or group the skills to reduce the calls of the logos
 // ADD SOME MIDUDEV PROJECTS https://www.javascript100.dev/ (COOL BE COULD ADD AN CHAT AI TO YOUR PORTFOLIO WHERE ANSWERS QUESTIONS ABOUT YOU)
 // ADD SOME PROJECTS WITH AI OR DATA SCIENCE OR LLM
-// Typography: Add a console/code typography to react guides home page to give it a look and feel more attractive
+// ADD A SHORTCUT BAR LIKE MIDUDEV WHEN HE MADE HIS REUSME
+// Add a spotlight to home page https://motion-primitives.com/docs/spotlight
+// Add a border trail to each square of home page https://motion-primitives.com/docs/border-trail
 export default function Home() {
   const icons = [
     {
@@ -69,6 +68,14 @@ export default function Home() {
     {
       src: 'https://skillicons.dev/icons?i=js',
       alt: 'javascript'
+    },
+    {
+      src: 'https://skillicons.dev/icons?i=aws',
+      alt: 'aws'
+    },
+    {
+      src: 'https://skillicons.dev/icons?i=vercel',
+      alt: 'vercel'
     }
   ]
   return (
@@ -91,7 +98,7 @@ export default function Home() {
         </div>
       </section>
       <section className="">
-        <div className="skills-grid rounded-lg bg-foreground-100 ">
+        <div className="skills-grid rounded-lg bg-foreground-100 p-4">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <FaMagic className="rounded-lg bg-black p-1 text-3xl text-white" />

@@ -51,6 +51,6 @@ export const nabla = Nabla({
 export const geistMono = Geist_Mono({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-geistMono'
 })
