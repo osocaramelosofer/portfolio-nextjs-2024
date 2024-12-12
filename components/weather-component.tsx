@@ -27,13 +27,12 @@ export function WeatherComponent() {
             <div className="h-24 w-40 rounded-lg bg-default-300"></div>
           </Skeleton>
         ) : (
-          <span className="font-lexed text-6xl font-semibold">
+          <span className="font-lexed text-3xl font-semibold lg:text-6xl">
             {Math.round(weather.temperature)} {weather.temperatureUnit}
           </span>
         )}
 
         <span className="font-lexend">Tlaxcala Mexico</span>
-        {/* {weather !== null && <span>{weather.timezone}</span>} */}
         <div className="flex gap-x-4 rounded-full bg-white px-4 py-1 font-lexend text-black">
           <div className="flex flex-col items-center justify-center">
             <span className="">
