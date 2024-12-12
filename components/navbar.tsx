@@ -22,7 +22,7 @@ export function Navbar() {
               />
             </div>
           </div>
-          <ul className="flex gap-x-4 font-lexend font-normal capitalize">
+          <ul className="flex gap-x-4 font-geist font-normal capitalize">
             {NAVBAR_ITEMS.map(({ key, name, icon }) => {
               const isActive = useActivePath({
                 currentPage: key,
@@ -31,15 +31,14 @@ export function Navbar() {
               return (
                 <li
                   key={name}
-                  className="rounded-full px-2 py-1 hover:cursor-pointer"
+                  className="rounded-full px-2 py-1 text-foreground-400 hover:cursor-pointer"
                 >
                   <Link href={`/${key}`}>
                     <div
                       className={`${
-                        isActive && 'text-sky-500'
+                        isActive && 'text-foreground-900'
                       } text-md flex items-center gap-x-1 md:text-lg lg:text-xl`}
                     >
-                      {icon}
                       <span>{name}</span>
                     </div>
                   </Link>
