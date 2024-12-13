@@ -44,7 +44,7 @@ export function HeroSection() {
             </div>
             <div className="mt-2 flex flex-wrap gap-2">
               <a
-                href="/files/resume.pdf"
+                href="/files/fernando_hernandez_full_stack_dev.pdf"
                 download="Fernando_Hernandez_Full_Stack_Developer.pdf"
               >
                 <Button className="rounded-full bg-foreground-50">
