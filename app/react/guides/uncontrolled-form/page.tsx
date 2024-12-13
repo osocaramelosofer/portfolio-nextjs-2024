@@ -2,7 +2,7 @@
 
 import { type SandpackFiles } from '@codesandbox/sandpack-react'
 import CustomSandpack from '../../custom-sandpack'
-import { TextScrambleBasic } from '@/components/motion-primitives/text-scramble-basic'
+import { TextScramble } from '@/components/motion-primitives/core/text-scramble'
 export default function UncontrolledFormPage() {
   const files: SandpackFiles = {
     '/App.js': {
@@ -54,9 +54,9 @@ export default function UncontrolledFormPage() {
 
   return (
     <div>
-      <TextScrambleBasic className="font-mono text-3xl uppercase">
+      <TextScramble className="font-mono text-3xl uppercase">
         Uncontrolled Form
-      </TextScrambleBasic>
+      </TextScramble>
 
       <CustomSandpack files={files} />
     </div>

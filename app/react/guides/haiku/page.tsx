@@ -1,7 +1,7 @@
 'use client'
 import { type SandpackFiles } from '@codesandbox/sandpack-react'
 import CustomSandpack from '../../custom-sandpack'
-import { TextScrambleBasic } from '@/components/motion-primitives/text-scramble-basic'
+import { TextScramble } from '@/components/motion-primitives/core/text-scramble'
 
 const HAIKU_FILES: SandpackFiles = {
   '/App.js': {
@@ -119,9 +119,9 @@ hr {
 export default function HaikuPage() {
   return (
     <div className="px-2">
-      <TextScrambleBasic className="font-mono text-3xl uppercase">
+      <TextScramble className="font-mono text-3xl uppercase">
         haiku
-      </TextScrambleBasic>
+      </TextScramble>
       <CustomSandpack files={HAIKU_FILES} />
     </div>
   )

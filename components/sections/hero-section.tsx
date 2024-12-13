@@ -7,8 +7,8 @@ import styles from '@/styles/avatar.module.css'
 
 import { WeatherComponent } from '../weather-component'
 import './hero.css'
-import { TextScrambleBasic } from '../motion-primitives/text-scramble-basic'
-import { TextScrambleCustomCharacterDuration } from '../motion-primitives/text-scramble-duration'
+
+import { TextScramble } from '../motion-primitives/core/text-scramble'
 export function HeroSection() {
   return (
     <section className="mb-3">
@@ -23,19 +23,24 @@ export function HeroSection() {
             <div className="image-container mb-4 mt-10 flex justify-center md:mt-0 md:justify-start">
               <div className={`${styles.heroImg} size-[150px] md:size-40`} />
             </div>
-            <TextScrambleBasic className="font-bungee text-xl md:text-4xl lg:text-5xl">
+            <TextScramble
+              className="font-bungee text-xl md:text-4xl lg:text-5xl"
+              as="h2"
+            >
               Full Stack Developer
-            </TextScrambleBasic>
-            <TextScrambleBasic className="font-geist text-lg md:text-3xl">
+            </TextScramble>
+            <TextScramble className="font-geist text-lg md:text-3xl">
               Fernando Hernández
-            </TextScrambleBasic>
+            </TextScramble>
             <div className="min-h-14">
-              <TextScrambleCustomCharacterDuration
+              <TextScramble
                 duration={1.5}
                 className="text-pretty break-words font-geist text-sm md:text-lg"
+                characterSet=". "
+                as="p"
               >
                 +5 years of experience building web applications
-              </TextScrambleCustomCharacterDuration>
+              </TextScramble>
             </div>
             <div className="mt-2 flex flex-wrap gap-2">
               <a

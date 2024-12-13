@@ -1,20 +1,20 @@
-import { TextScrambleBasic } from '@/components/motion-primitives/text-scramble-basic'
-import { TextScrambleCustomCharacterDuration } from '@/components/motion-primitives/text-scramble-duration'
+import { TextScramble } from '@/components/motion-primitives/core/text-scramble'
 
 export default function ReactPage() {
   return (
     <div className="px-2">
-      <h1 className="">
-        <TextScrambleBasic className="font-bungee text-sm font-semibold md:text-5xl">
-          React Exercises
-        </TextScrambleBasic>
-      </h1>
+      <TextScramble
+        className="font-bungee text-sm font-semibold md:text-5xl"
+        as="h1"
+      >
+        React Exercises
+      </TextScramble>
 
       <article className="font-geist text-lg">
-        <TextScrambleCustomCharacterDuration className="font-geist">
+        <TextScramble className="font-geist" duration={1.2} characterSet=". ">
           These are react helpful exercises I have found in my journey as a
           frontend developer.
-        </TextScrambleCustomCharacterDuration>
+        </TextScramble>
       </article>
     </div>
   )
